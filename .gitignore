@@ -1,0 +1,17 @@
+static/uploads/
+api/__pycache__/
+api/feedback/
+feedback/
+*/__pycache__/
+model/weights/
+model/uploads
+model/ml_service_copy
+static/
+uploads/
+tests/__pycache__/
+tests/.pytest_cache
+tests/*.jpeg
+tests/*.jpg
+tests/*.gif
+tests/*.png
+*ipynb

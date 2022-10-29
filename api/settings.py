@@ -19,7 +19,6 @@ REDIS_PORT = 6379
 # DB Id
 REDIS_DB_ID = 0
 # Host IP
-#REDIS_IP = os.getenv("REDIS_IP", "redis")
 REDIS_IP = os.getenv("REDIS_IP", "redis")
 # Sleep parameters which manages the
 # interval between requests to our redis queue

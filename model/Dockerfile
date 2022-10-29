@@ -13,5 +13,5 @@ WORKDIR /src
 #RUN ["pytest", "-v", "/src/tests"]
 
 FROM base as build
-ENTRYPOINT ["python", "/src/ml_service.py"]
+ENTRYPOINT ["python3", "/src/ml_service.py"]
 

@@ -1,10 +1,10 @@
 <!doctype html>
 <html>
     <head>
-        <title>Image Classification with ResNet50</title>
+        <title>ML API</title>
     </head>
     <body>
-        <h2>Image Classification with ResNet50</h2>
+        <h2>Select a file to upload</h2>
         <p>
             {% with messages = get_flashed_messages() %}
             {% if messages %}
@@ -27,12 +27,10 @@
                     <label for="subject">Score: {{ context['score'] }} </label>
                     </div>
                 </div>
-
                 <form id="form" method="POST" action="/feedback">
                     <button type="submit">Report incorrect answer</button>
                     <input name="report" style="visibility: hidden;" value="{'filename': '{{ filename }}', 'prediction': '{{ context['prediction'] }}', 'score': {{ context['score'] }} }"/>
                 </form>
-
             {% endif %}
         {% endif %}
         <form method="post" action="/" enctype="multipart/form-data">
