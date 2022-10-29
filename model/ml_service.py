@@ -81,7 +81,6 @@ def classify_process():
     Load image from the corresponding folder based on the image name
     received, then, run our ML model to get predictions.
     """
-    print("START ML")
     while True:
         # Take a new job from Redis
       queue_name, job_data_str = db.brpop(settings.REDIS_QUEUE)
