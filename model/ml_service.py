@@ -5,51 +5,26 @@ import time
 import numpy as np
 import redis
 import settings
-# from tensorflow.keras.applications import ResNet50, ResNet101V2 
-# from tensorflow.keras.applications.resnet50 import decode_predictions, preprocess_input
-# from tensorflow.keras.applications.resnet_v2 import  preprocess_input as preprocess_inputV2
-# from tensorflow.keras.applications.resnet_v2 import  decode_predictions as decode_predictionsV2
-from tensorflow.keras.applications import resnet50, resnet_v2, mobilenet, vgg16, xception
-
-
-
+import tensorflow
+from tensorflow.keras.applications import MobileNetV2
+from tensorflow.keras.applications.resnet50 import decode_predictions, preprocess_input
 from tensorflow.keras.preprocessing import image
 
-
-
-# TODO
 # Connect to Redis and assign to variable `db``
-# Make use of settings.py module to get Redis settings like host, port, etc.
 db = redis.Redis(
       host=settings.REDIS_IP, 
       port=settings.REDIS_PORT, 
       db=settings.REDIS_DB_ID
     )
-print("dssssd")
+import ssl
 
-# TODO
-# Load your ML model and assign to variable `model`
-# See https://drive.google.com/file/d/1ADuBSE4z2ZVIdn66YDSwxKv-58U7WEOn/view?usp=sharing
-# for more information about how to use this model.
-#model = ResNet50(include_top=True, weights="imagenet")
+#ssl._create_default_https_context = ssl._create_unverified_context
+# Load Resnet50 model
+model = MobileNetV2(include_top=True, weights=None)
+#model = ResNet50(include_top=True, weights="/src/resnet50_weights_tf_dim_ordering_tf_kernels.h5")
 
 
-models= { 'ResNet50': resnet50,
-          'ResNet101V2': resnet_v2 ,
-          'MobileNet': mobilenet,
-          'VGG16': vgg16,
-          'Xception': xception}
-
-ResNet50 = resnet50.ResNet50(include_top=True,
-                             weights="/src/weights/resnet50_weights_tf_dim_ordering_tf_kernels.h5")
-ResNet101V2 = resnet_v2.ResNet101V2(include_top=True,
-                                    weights='/src/weights/resnet101v2_weights_tf_dim_ordering_tf_kernels.h5'
-)
-MobileNet = mobilenet.MobileNet(include_top=True,weights='/src/weights/mobilenet_1_0_224_tf.h5')
-Xception = xception.Xception(include_top=True, weights='/src/weights/xception_weights_tf_dim_ordering_tf_kernels.h5')
-VGG16 = vgg16.VGG16(include_top=True, weights='/src/weights/vgg16_weights_tf_dim_ordering_tf_kernels.h5')
-
-def predict(image_name, NNmodel='ResNet50'):
+def predict(image_name):
     """
     Load image from the corresponding folder based on the image name
     received, then, run our ML model to get predictions.
@@ -65,26 +40,19 @@ def predict(image_name, NNmodel='ResNet50'):
         Model predicted class as a string and the corresponding confidence
         score as a number.
     """
-    input_shape = 299 if NNmodel == 'Xception' else 224
-    file_path = os.path.join(settings.UPLOAD_FOLDER,image_name)
-    img = image.load_img(file_path, target_size=(input_shape,input_shape))
+    # Load image and preprocess it
+    file_path = os.path.join(settings.UPLOAD_FOLDER, image_name)
+    img = image.load_img(file_path, target_size=(224,224))
     x = image.img_to_array(img)
     x_batch = np.expand_dims(x, axis=0)
+    x_batch = preprocess_input(x_batch)
 
-    #x_batch = preprocess_input(x_batch)
-    #preds = model.predict(x_batch)
-    #best_pred = decode_predictions(preds, top=1)
-    model = globals()[NNmodel]
-    model_class= models[NNmodel]
-    x_batch = model_class.preprocess_input(x_batch)
+    # Make predictions and keep the one with highest probability
     preds = model.predict(x_batch)
-    best_pred = model_class.decode_predictions(preds, top=1)
-    
-
-    
+    best_pred = decode_predictions(preds, top=1)
     class_name = best_pred[0][0][1]
     pred_probability = best_pred[0][0][2]
-    # TODO
+
     return class_name, round(float(pred_probability),4)
 
 
@@ -99,37 +67,25 @@ def classify_process():
     Load image from the corresponding folder based on the image name
     received, then, run our ML model to get predictions.
     """
+    print("START ML")
     while True:
-        # Inside this loop you should add the code to:
-        #   1. Take a new job from Redis
-        #   2. Run your ML model on the given data
-        #   3. Store model prediction in a dict with the following shape:
-        #      {
-        #         "prediction": str,
-        #         "score": float,
-        #      }
-        #   4. Store the results on Redis using the original job ID as the key
-        #      so the API can match the results it gets to the original job
-        #      sent
-        # Hint: You should be able to successfully implement the communication
-        #       code with Redis making use of functions `brpop()` and `set()`.
-        # TODO
-        queue_name, job_data_str = db.brpop(settings.REDIS_QUEUE)
-        job_data = json.loads(job_data_str)
+        # Take a new job from Redis
+      queue_name, job_data_str = db.brpop(settings.REDIS_QUEUE)
+      print(job_data_str)
+      
+      job_data = json.loads(job_data_str.decode('utf-8'))
 
-        class_name, pred_probability = predict(job_data['image_name'], 'Xception')
-        pred_dict = {
-                      "prediction": class_name,
-                      "score": float(pred_probability),
-                    }
-        print(pred_dict)
+      # Run ML model on the given data
+      class_name, pred_probability = predict(job_data['image_name'])
+      pred_dict = {
+                    "prediction": class_name,
+                    "score": float(pred_probability)
+                  }
+      # Store the results on Redis
+      db.set(job_data["id"], json.dumps(pred_dict))
 
-        #time.sleep(10)
-        db.set(job_data["id"], json.dumps(pred_dict))
-
-
-        # Don't forget to sleep for a bit at the end
-        time.sleep(settings.SERVER_SLEEP)
+      # Sleep for a bit at the end
+      time.sleep(settings.SERVER_SLEEP)
 
 
 if __name__ == "__main__":

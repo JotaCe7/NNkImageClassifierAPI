@@ -4,9 +4,6 @@ import os
 UPLOAD_FOLDER = "uploads/"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
-# Here we will store models' weights
-WEIGHTS_FOLDER = "weights/"
-
 # REDIS
 # Queue name
 REDIS_QUEUE = "service_queue"
