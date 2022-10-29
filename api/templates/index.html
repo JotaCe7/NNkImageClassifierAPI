@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
     <head>
-        <title>ML API</title>
+        <title>Neural Network Image Classification API</title>
     </head>
     <body>
         <h2>Select a file to upload</h2>
@@ -36,11 +36,16 @@
         <form method="post" action="/" enctype="multipart/form-data">
             <dl>
                 <p>
-                    <input type="file" name="file" autocomplete="off" required>
+                    <input type="file" name="file" autocomplete="off">
                 </p>
             </dl>
+            <label><input type="checkbox", name="chbx_model_selection" value="ResNet50">ResNet50</label>
+            <label><input type="checkbox", name="chbx_model_selection" value="ResNet101V2">ResNet101V2</label>
+            <label><input type="checkbox", name="chbx_model_selection" value="MobileNet">MobileNet</label>
+            <label><input type="checkbox", name="chbx_model_selection" value="VGG16">VGG16</label>
+            <label><input type="checkbox", name="chbx_model_selection" value="Xception">Xception</label>
             <p>
-                <input type="submit" value="Submit">
+                <input type="submit" value="Make Prediction">
             </p>
         </form>
     </body>
