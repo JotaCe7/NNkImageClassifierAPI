@@ -45,9 +45,9 @@ ResNet50 = resnet50.ResNet50(include_top=True,
 ResNet101V2 = resnet_v2.ResNet101V2(include_top=True,
                                     weights='/src/weights/resnet101v2_weights_tf_dim_ordering_tf_kernels.h5'
 )
-MobileNet = mobilenet.MobileNet(include_top=True,weights='imagenet')
-Xception = xception.Xception(include_top=True, weights='imagenet')
-VGG16 = vgg16.VGG16(include_top=True, weights='imagenet')
+MobileNet = mobilenet.MobileNet(include_top=True,weights='/src/weights/mobilenet_1_0_224_tf.h5')
+Xception = xception.Xception(include_top=True, weights='/src/weights/xception_weights_tf_dim_ordering_tf_kernels.h5')
+VGG16 = vgg16.VGG16(include_top=True, weights='/src/weights/vgg16_weights_tf_dim_ordering_tf_kernels.h5')
 
 def predict(image_name, NNmodel='ResNet50'):
     """
