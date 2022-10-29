@@ -6,7 +6,7 @@ import numpy as np
 import redis
 import settings
 import tensorflow
-from tensorflow.keras.applications import MobileNetV2
+from tensorflow.keras.applications import MobileNetV2, ResNet50
 from tensorflow.keras.applications.resnet50 import decode_predictions, preprocess_input
 from tensorflow.keras.preprocessing import image
 
@@ -20,7 +20,7 @@ import ssl
 
 #ssl._create_default_https_context = ssl._create_unverified_context
 # Load Resnet50 model
-model = MobileNetV2(include_top=True, weights=None)
+model = ResNet50(include_top=True, weights=None)
 #model = ResNet50(include_top=True, weights="/src/resnet50_weights_tf_dim_ordering_tf_kernels.h5")
 
 
