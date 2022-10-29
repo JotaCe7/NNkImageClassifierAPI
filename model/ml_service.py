@@ -20,8 +20,8 @@ import ssl
 
 #ssl._create_default_https_context = ssl._create_unverified_context
 # Load Resnet50 model
-model = ResNet50(include_top=True, weights=None)
-#model = ResNet50(include_top=True, weights="/src/resnet50_weights_tf_dim_ordering_tf_kernels.h5")
+#model = ResNet50(include_top=True, weights=None)
+model = ResNet50(include_top=True, weights="/src/resnet50_weights_tf_dim_ordering_tf_kernels.h5")
 
 
 def predict(image_name):
