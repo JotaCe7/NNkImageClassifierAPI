@@ -33,15 +33,8 @@ class TestIntegration(unittest.TestCase):
         self.assertEqual(len(data.keys()), 3)
         self.assertEqual(data["success"], True)
         self.assertEqual(data["prediction"], "Eskimo_dog")
-        self.assertAlmostEqual(data["score"], 0.9346, 5) #5
+        self.assertAlmostEqual(data["score"], 0.9346, 5)
 
 
 if __name__ == "__main__":
     unittest.main()
-    response = requests.request(
-            "POST",
-            "http://0.0.0.0/",
-        )
-    print(response)
-    files = [("file", ("dog.jpeg", open("tests/dog.jpeg", "rb"), "image/jpeg"))]
-    print(files[0][0])
