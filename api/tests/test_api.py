@@ -1,6 +1,7 @@
 import json
 from unittest import TestCase
 from unittest.mock import patch
+
 from app import app
 
 
@@ -14,6 +15,7 @@ class TestIntegration(TestCase):
             data=json.dumps({"not_a_file": "blabla"}),
             content_type="application/json",
         )
+        
         self.assertEqual(response.status_code, 400)
         data = json.loads(response.get_data(as_text=True))
         self.assertEqual(len(data.keys()), 3)
@@ -96,6 +98,3 @@ class TestEnpointsAvailability(TestCase):
         response = self.client.post("/predict")
         # Bad args
         self.assertEqual(response.status_code, 400)
-        
-if __name__ == "__main__":
-  TestIntegration()

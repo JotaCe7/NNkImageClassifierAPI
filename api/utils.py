@@ -1,5 +1,6 @@
 import hashlib
-from os.path import splitext, basename
+import os
+from posixpath import splitext
 
 
 def allowed_file(filename:str):
@@ -18,13 +19,10 @@ def allowed_file(filename:str):
     bool
         True if the file is an image, False otherwise.
     """
-    # Current implementation will allow any kind of file.
-    # TODO
     valid_extensions = [".png", ".jpg", ".jpeg", ".gif"]
     extension = splitext(filename.lower())[1]
     is_allowed = True if extension in valid_extensions else False
-
-    print(extension)
+    
     return is_allowed
 
 
@@ -44,10 +42,8 @@ def get_file_hash(file):
     str
         New filename based in md5 file hash.
     """
-    # Current implementation will return the original file name.
-    # TODO
-    data = file.read()
-    md5hash = hashlib.md5(data).hexdigest()
+    file_contents = file.read()
+    md5hash = hashlib.md5(file_contents).hexdigest()
     extension = splitext(file.filename)[1]
     hashed_name = md5hash + extension
     file.seek(0)
