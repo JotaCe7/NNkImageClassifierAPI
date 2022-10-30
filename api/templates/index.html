@@ -5,8 +5,10 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='web/style.css') }}">
     </head>
     <body>
-        <p id="paragraph">Hello</p>
+        <p id="paragraph">Change one element property by clicking a button</p>
         <button id="mybtn">  Click me!</button>
+        <!-- <input type="file" id="image_input" accept="image/png, image/jpeg, image/jpg"> -->
+        <!-- <div id="display_image"></div> -->
 
         <h2 id="title">Select a file to upload</h2>
         <p>
@@ -38,20 +40,29 @@
             {% endif %}
         {% endif %}
         <form method="post" action="/" enctype="multipart/form-data">
-            <dl>
-                <p>
-                    <input type="file" name="file" autocomplete="off">
-                </p>
-            </dl>
-            <label><input type="checkbox", name="chbx_model_selection" value="ResNet50">ResNet50</label>
-            <label><input type="checkbox", name="chbx_model_selection" value="ResNet101V2">ResNet101V2</label>
-            <label><input type="checkbox", name="chbx_model_selection" value="MobileNet">MobileNet</label>
-            <label><input type="checkbox", name="chbx_model_selection" value="VGG16">VGG16</label>
-            <label><input type="checkbox", name="chbx_model_selection" value="Xception">Xception</label>
+            
+            <input type="file" id="image_input" name="file" class="hidden">
+            <label for="image_input" id="image_input_label" class="fake_button to_left">Upload</label>
+            <label for="image_input_label" class="to_left"> Select an image to upload</label>
+            <div id="display_image"></div>
+            <br>
+            
+            <label>Select a model</label>
+            <div>
+              <label><input type="checkbox", name="chbx_model_selection" value="ResNet50">ResNet50</label>
+              <label><input type="checkbox", name="chbx_model_selection" value="ResNet101V2">ResNet101V2</label>
+              <label><input type="checkbox", name="chbx_model_selection" value="MobileNet">MobileNet</label>
+              <label><input type="checkbox", name="chbx_model_selection" value="VGG16">VGG16</label>
+              <label><input type="checkbox", name="chbx_model_selection" value="Xception">Xception</label>
+            </div>
             <p>
                 <input type="submit" value="Make Prediction">
             </p>
         </form>
+        <input type="file" id="image_input" accept="image/png, image/jpeg, image/jpg">
+        
+
+        
         <script src="{{ url_for('static', filename='web/app.js') }}"></script>
         <noscript>You need to enable JavaScript to view the full site.</noscript>
     </body>
