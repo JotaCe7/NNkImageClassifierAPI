@@ -1,3 +1,38 @@
 body {
-  font-family: monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-direction: column;
+  height: 100vh;
 }
+
+#display_image{
+  width: 375px;
+  height: 211px;
+  border: 1px solid black;
+  background-position: center;
+  background-size: cover;
+}
+
+.hidden {
+  visibility: collapse;
+}
+.fake_button {
+  font: bold;
+  text-decoration: none;
+  background-color: #EEEEEE;
+  color: #333333;
+  padding: 2px 6px 2px 6px;
+  border-top: 1px solid #CCCCCC;
+  border-right: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  border-left: 1px solid #CCCCCC;
+}
+.to_left {
+  float: left;
+}
+
+
+
+
