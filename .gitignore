@@ -4,5 +4,6 @@ feedback/
 model/ml_service_copy
 ./static/
 uploads/
+!/uploads/
 */.pytest_cache
 *ipynb

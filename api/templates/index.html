@@ -5,7 +5,10 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='web/style.css') }}">
     </head>
     <body>
-        <h2>Select a file to upload</h2>
+        <p id="paragraph">Hello</p>
+        <button id="mybtn">  Click me!</button>
+
+        <h2 id="title">Select a file to upload</h2>
         <p>
             {% with messages = get_flashed_messages() %}
             {% if messages %}
