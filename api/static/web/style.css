@@ -52,3 +52,88 @@ body {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
 }
+:root {
+  --p: 162 100% 50%;
+  --pf: 162 98.3% 44.9%;
+  --pc: 222 56.4% 21.6%;
+  --s: 314 100% 47.1%;
+  --sf: 314 100% 37.1%;
+  --sc: 0 0% 100%;
+  --a: 227 100% 98.2%;
+  --af: 174 59.8% 41%;
+  --ac: 222 13.4% 19%;
+  --n: 0 0% 100%;
+  --nf: 0 0% 0%;
+  --nc: 222 13.4% 19%;
+  --b1: 222 56.4% 21.6%;
+  --b2: 222 41% 27.3%;
+  --b3: 222 53.6% 11%;
+  --bc: 0 0% 80.4%;
+  --in: 207 89.8% 53.9%;
+  --su: 174 100% 29%;
+  --wa: 36 100% 50%;
+  --er: 14 100% 57.1%;
+}
+:root {
+  background-color: hsla(var(--b1)/var(--tw-bg-opacity,1));
+  color: hsla(var(--bc)/var(--tw-text-opacity,1));
+}
+
+.btn {
+  border-color: hsla(var(--n)/var(--tw-border-opacity,1));
+  cursor: pointer;
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  text-align: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  transition-property: background-color,border-color,color,fill,stroke,opacity,box-shadow,transform;
+  transition-duration: .2s;
+  transition-timing-function: cubic-bezier(.4,0,.2,1);
+  border-radius: var(--rounded-btn,.5rem);
+  height: 3rem;
+  font-size: .875rem;
+  line-height: 1em;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  min-height: 3rem;
+  text-transform: var(--btn-text-case,uppercase);
+  border-width: var(--border-btn,1px);
+  -webkit-animation: button-pop var(--animation-btn,.25s) ease-out;
+  animation: button-pop var(--animation-btn,.25s) ease-out;
+  --tw-bg-opacity: 1;
+  background-color: hsla(var(--n)/var(--tw-bg-opacity,1));
+  --tw-border-opacity: 1;
+  --tw-text-opacity: 1;
+  color: hsla(var(--nc)/var(--tw-text-opacity,1));
+}
+.bg-anyai-gradient {
+  background: linear-gradient(114.43deg,#00ffb2 -4.36%,#56e6f3 133.52%);
+}
+.border-0 {
+  border-width: 0;
+}
+.w-full {
+  width: 100%;
+}
+.mt-8 {
+  margin-top: 2rem;
+}
+.btn {
+  font-family: Kamerik;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+button, input, optgroup, select, textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: inherit;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+}
