@@ -2,8 +2,8 @@
 <html>
     <head>
         <title>Neural Network Image Classification API</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='web/style.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='web/header.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='web/style.css') }}">
     </head>
     <body>
         <p id="paragraph">Change one element property by clicking a button</p>
@@ -59,56 +59,109 @@
           </div>
         </div>
 
-        <h2 id="title">Select a file to upload</h2>
-        <p>
-            {% with messages = get_flashed_messages() %}
-            {% if messages %}
-                <ul>
-                {% for message in messages %}
-                <li>{{ message }}</li>
-                {% endfor %}
-                </ul>
-            {% endif %}
-            {% endwith %}
-        </p>
-        {% if filename %}
-            <div>
-                <img src="{{ url_for('app_router.display_image', filename=filename) }}">
-            </div>
-            {% if context['prediction'] %}
-                <div class="row">
-                    <div class="col-25">
-                    <label for="subject">Predicted class: {{ context['prediction'] }} </label><br>
-                    <label for="subject">Score: {{ context['score'] }} </label>
-                    </div>
-                </div>
-                <form id="form" method="POST" action="/feedback">
-                    <button class="btn" type="submit">Report incorrect answer</button>
-                    <input name="report" style="visibility: hidden;" value="{'filename': '{{ filename }}', 'prediction': '{{ context['prediction'] }}', 'score': {{ context['score'] }} }"/>
-                </form>
-            {% endif %}
-        {% endif %}
-        <form method="post" action="/" enctype="multipart/form-data">
-            
-            <input type="file" id="image_input" name="file" class="hidden">
-            <label for="image_input" id="image_input_label" class="btn bg-anyai-gradient border-0 mt-8 w-full md:w-fit">Upload</label>
-            <label for="image_input_label" class="to_left"> Select an image to upload</label>
-            <div id="display_image"></div>
-            <br>
-            
-            <label>Select a model</label>
-            <div>
-              <label><input type="checkbox", name="chbx_model_selection" value="ResNet50">ResNet50</label>
-              <label><input type="checkbox", name="chbx_model_selection" value="ResNet101V2">ResNet101V2</label>
-              <label><input type="checkbox", name="chbx_model_selection" value="MobileNet">MobileNet</label>
-              <label><input type="checkbox", name="chbx_model_selection" value="VGG16">VGG16</label>
-              <label><input type="checkbox", name="chbx_model_selection" value="Xception">Xception</label>
-            </div>
-            <p>
-                <input type="submit" class="btn bg-anyai-gradient border-0 mt-8 w-full md:w-fit" value="Make Prediction">
-            </p>
-        </form>
-        <input type="file" id="image_input" accept="image/png, image/jpeg, image/jpg">
+        <div>
+          <h2 id="title">Select a file to upload</h2>
+          <p>
+              {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                  <ul>
+                  {% for message in messages %}
+                  <li>{{ message }}</li>
+                  {% endfor %}
+                  </ul>
+              {% endif %}
+              {% endwith %}
+          </p>
+          {% if filename %}
+              <div>
+                  <img src="{{ url_for('app_router.display_image', filename=filename) }}">
+              </div>
+              {% if context['prediction'] %}
+                  <div class="row">
+                      <div class="col-25">
+                      <label for="subject">Predicted class: {{ context['prediction'] }} </label><br>
+                      <label for="subject">Score: {{ context['score'] }} </label>
+                      </div>
+                  </div>
+                  <form id="form" method="POST" action="/feedback">
+                      <button class="btn" type="submit">Report incorrect answer</button>
+                      <input name="report" style="visibility: hidden;" value="{'filename': '{{ filename }}', 'prediction': '{{ context['prediction'] }}', 'score': {{ context['score'] }} }"/>
+                  </form>
+              {% endif %}
+          {% endif %}
+          <form method="post" action="/" enctype="multipart/form-data">
+              
+              <input type="file" id="image_input" name="file" class="hidden">
+              <label for="image_input" id="image_input_label" class="btn bg-anyai-gradient border-0 mt-8 w-full md:w-fit">Upload</label>
+              <label for="image_input_label" class="to_left"> Select an image to upload</label>
+              <div id="display_image"></div>
+              <br>
+              
+              <label>Select a model</label>
+              <div>
+                <label><input type="checkbox", name="chbx_model_selection" value="ResNet50">ResNet50</label>
+                <label><input type="checkbox", name="chbx_model_selection" value="ResNet101V2">ResNet101V2</label>
+                <label><input type="checkbox", name="chbx_model_selection" value="MobileNet">MobileNet</label>
+                <label><input type="checkbox", name="chbx_model_selection" value="VGG16">VGG16</label>
+                <label><input type="checkbox", name="chbx_model_selection" value="Xception">Xception</label>
+              </div>
+              <p>
+                  <input type="submit" class="btn bg-anyai-gradient border-0 mt-8 w-full md:w-fit" value="Make Prediction">
+              </p>
+          </form>
+          <input type="file" id="image_input" accept="image/png, image/jpeg, image/jpg">
+
+        </div>
+
+          <h2 id="title">Select a file to upload</h2>
+          <p>
+              {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                  <ul>
+                  {% for message in messages %}
+                  <li>{{ message }}</li>
+                  {% endfor %}
+                  </ul>
+              {% endif %}
+              {% endwith %}
+          </p>
+          {% if filename %}
+              <div>
+                  <img src="{{ url_for('app_router.display_image', filename=filename) }}">
+              </div>
+              {% if context['prediction'] %}
+                  <div class="row">
+                      <div class="col-25">
+                      <label for="subject">Predicted class: {{ context['prediction'] }} </label><br>
+                      <label for="subject">Score: {{ context['score'] }} </label>
+                      </div>
+                  </div>
+                  <form id="form" method="POST" action="/feedback">
+                      <button class="btn" type="submit">Report incorrect answer</button>
+                      <input name="report" style="visibility: hidden;" value="{'filename': '{{ filename }}', 'prediction': '{{ context['prediction'] }}', 'score': {{ context['score'] }} }"/>
+                  </form>
+              {% endif %}
+          {% endif %}
+          <form method="post" action="/" enctype="multipart/form-data">
+              
+              <input type="file" id="image_input" name="file" class="hidden">
+              <label for="image_input" id="image_input_label" class="btn bg-anyai-gradient border-0 mt-8 w-full md:w-fit">Upload</label>
+              <label for="image_input_label" class="to_left"> Select an image to upload</label>
+              <div id="display_image"></div>
+              <br>
+              
+              <label>Select a model</label>
+              <div>
+                <label><input type="checkbox", name="chbx_model_selection" value="ResNet50">ResNet50</label>
+                <label><input type="checkbox", name="chbx_model_selection" value="ResNet101V2">ResNet101V2</label>
+                <label><input type="checkbox", name="chbx_model_selection" value="MobileNet">MobileNet</label>
+                <label><input type="checkbox", name="chbx_model_selection" value="VGG16">VGG16</label>
+                <label><input type="checkbox", name="chbx_model_selection" value="Xception">Xception</label>
+              </div>
+              <input type="submit" class="btn bg-anyai-gradient border-0 mt-8 w-full md:w-fit" value="Make Prediction">
+              
+          </form>
+          <input type="file" id="image_input" accept="image/png, image/jpeg, image/jpg">
 
 
         <div class="md:container md:mx-auto text-accent px-12 py-12 sm:px-8 sm:py-8 md:py-12 lg:px-32 lg:py-24">
