@@ -3,12 +3,61 @@
     <head>
         <title>Neural Network Image Classification API</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='web/style.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='web/header.css') }}">
     </head>
     <body>
         <p id="paragraph">Change one element property by clicking a button</p>
         <button id="mybtn">  Click me!</button>
         <!-- <input type="file" id="image_input" accept="image/png, image/jpeg, image/jpg"> -->
         <!-- <div id="display_image"></div> -->
+
+        <div class="bg-base-200">
+          <div class="md:container navbar pl-12 py-2 md:px-16 md:mx-auto lg:px-32 ">
+            <div class="flex-auto">
+              <span style="box-sizing:border-box;display:inline-block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:relative;max-width:100%">
+                <span style="box-sizing:border-box;display:block;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;max-width:100%">
+                  <img style="display:block;max-width:100%;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0" alt="" aria-hidden="true" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTE1IiBoZWlnaHQ9IjMwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIvPg==">
+                </span>
+                <img alt="AnyoneAi logo" src="https://anyoneai.com/_next/image?url=%2Fimg%2Flogo_with_name.svg&w=128&q=75" decoding="async" data-nimg="intrinsic" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%">
+                <noscript>
+                  <img alt="AnyoneAi logo" src="https://anyoneai.com/_next/image?url=%2Fimg%2Flogo_with_name.svg&w=128&q=75" decoding="async" data-nimg="intrinsic" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%" loading="lazy"/>
+                </noscript>
+              </span>
+            </div>
+            <div class="hidden md:flex">
+              <div class="flex items-stretch">
+                <a class="btn btn-ghost btn-sm rounded-btn underline decoration-primary decoration-4 underline-offset-8" href="/">Alumnos</a>
+                <a class="btn btn-ghost btn-sm rounded-btn" href="for-companies">Compañías</a>
+              </div>
+            </div>
+            <div class="px-2 mx-2 md:hidden">
+              <div class="dropdown dropdown-hover dropdown-end">
+                <div tabindex="0" class="m-1 btn btn-sm btn-ghost space-y-1.5 flex-col">
+                  <span class="block w-8 h-1 bg-accent"></span>
+                  <span class="block w-8 h-1 bg-accent"></span>
+                  <span class="block w-8 h-1 bg-accent"></span>
+                </div>
+                <div tabindex="0" class="p-2 shadow menu dropdown-content bg-primary text-primary-content rounded-lg whitespace-nowrap">
+                  <a class="btn btn-ghost btn-sm rounded-btn underline decoration-primary decoration-4 underline-offset-8" href="/">Alumnos</a>
+                  <a class="btn btn-ghost btn-sm rounded-btn" href="for-companies">Compañías</a>
+                  <div class="flex flex-col border-t-2 border-solid border-base-100 mt-4 pt-4">
+                    <a class="btn btn-ghost btn-sm rounded-btn" href="/">ES - Español</a>
+                    <a class="btn btn-ghost btn-sm rounded-btn" href="/en">EN - Inglés</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="px-2 mx-2 hidden md:flex">
+              <div class="dropdown dropdown-hover dropdown-end">
+                <div tabindex="0" class="m-1 btn btn-sm btn-outline">es</div>
+                <ul tabindex="0" class="p-2 shadow menu dropdown-content bg-primary text-primary-content rounded-lg whitespace-nowrap">
+                  <a class="btn btn-ghost btn-sm rounded-btn" href="/">ES - Español</a>
+                  <a class="btn btn-ghost btn-sm rounded-btn" href="/en">EN - Inglés</a>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <h2 id="title">Select a file to upload</h2>
         <p>
@@ -138,6 +187,7 @@
 
         
         <script src="{{ url_for('static', filename='web/app.js') }}"></script>
+        <script src="{{ url_for('static', filename='web/header.js') }}"></script>
         <noscript>You need to enable JavaScript to view the full site.</noscript>
     </body>
 </html>
