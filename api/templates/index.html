@@ -6,8 +6,8 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='web/style.css') }}">
     </head>
     <body>
-        <p id="paragraph">Change one element property by clicking a button</p>
-        <button id="mybtn">  Click me!</button>
+        <!-- <p id="paragraph">Change one element property by clicking a button</p>
+        <button id="mybtn">  Click me!</button> -->
         <!-- <input type="file" id="image_input" accept="image/png, image/jpeg, image/jpg"> -->
         <!-- <div id="display_image"></div> -->
 
@@ -59,8 +59,13 @@
           </div>
         </div>
 
-        <div>
-          <h2 id="title">Select a file to upload</h2>
+        <!-- <div class="md:container md:mx-auto text-accent px-12 py-12 sm:px-8 sm:py-8 md:py-12 lg:px-32 lg:py-24"> -->
+          
+          <p>Select an image file to upload</p> 
+        <!-- </div> -->
+
+        <div class="md:container md:mx-auto text-accent px-12 py-12 sm:px-8 sm:py-8 md:py-12 lg:px-32 lg:py-24">
+          <p>Select an image file to upload</p> 
           <p>
               {% with messages = get_flashed_messages() %}
               {% if messages %}
@@ -113,7 +118,7 @@
 
         </div>
 
-          <h2 id="title">Select a file to upload</h2>
+          <!-- <h2 id="title">Select a file to upload</h2>
           <p>
               {% with messages = get_flashed_messages() %}
               {% if messages %}
@@ -161,7 +166,7 @@
               <input type="submit" class="btn bg-anyai-gradient border-0 mt-8 w-full md:w-fit" value="Make Prediction">
               
           </form>
-          <input type="file" id="image_input" accept="image/png, image/jpeg, image/jpg">
+          <input type="file" id="image_input" accept="image/png, image/jpeg, image/jpg"> -->
 
 
         <div class="md:container md:mx-auto text-accent px-12 py-12 sm:px-8 sm:py-8 md:py-12 lg:px-32 lg:py-24">
