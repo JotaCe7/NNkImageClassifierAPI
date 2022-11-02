@@ -55,18 +55,7 @@
       </header>
 
       <h1 class="page_heading">Welcome Back!</h1>
-      <h2 class="page_heading">Welcome Back!</h2>
-      <h2>Welcome Back!</h2>
-      <h4 class="page_heading">Welcome Back!</h4>
       
-      <main class="sign-in" id="main-content2" role="main">
-        <article class="sign-in__form">
-          <h2 class="page__heading">
-            Welcome Back!
-          </h2>
-        </article>
-      </main>
-
 
       <main class="sign-in" id="main-content2" role="main">
         <div class="sign-in__container">
@@ -76,6 +65,8 @@
                 Try out your own image!
               </h2>
                 
+              
+
               <form method="post" action="/" enctype="multipart/form-data">
                 <div class="form__group">
                   <input type="file" id="image_input2" name="file" class="hidden">
@@ -83,7 +74,109 @@
                   <label for="image_input2" class="label_button"><u>Upload</u></label>
                   <br>
                 </div>
-                <div id="display_image2"></div>
+
+
+
+                {% if filename %}
+                  <!-- <div>
+                      <img src="{{ url_for('app_router.display_image', filename=filename) }}">
+                  </div> -->
+                  {% if context['prediction'] %}
+                    <div class="row">
+                      <div class="col-25">
+                        <label for="subject">Predicted class: {{ context['prediction'] }} </label><br>
+                        <label for="subject">Score: {{ context['score'] }} </label>
+                        </div>
+                    </div>
+                    <form id="form" method="POST" action="/feedback">
+                        <button class="btn" type="submit">Report incorrect answer</button>
+                        <input name="report" style="visibility: hidden;" value="{'filename': '{{ filename }}', 'prediction': '{{ context['prediction'] }}', 'score': {{ context['score'] }} }"/>
+                    </form>
+                  {% endif %}
+                {% endif %}
+
+
+
+                
+                {% if not filename %}
+                <div id="display_image2">
+                  <div>
+                      <img src="{{ url_for('app_router.display_image', filename=filename) }}">
+                  </div>
+                </div>
+                {% endif %}
+
+
+
+
+                <div class="md:container md:mx-auto text-accent px-12 py-12 sm:px-8 sm:py-8 md:py-12 lg:px-32 lg:py-24">
+                  <h1 class="sm:text-3xl text-2xl font-medium title-font text-center text-primary">¿Cuánto cuesta?</h1>
+                  <p class="text-center mb-16">No tiene costo de ningún tipo hasta que comiences a trabajar.</p>
+                  <div class="md:flex md:flex-wrap justify-center">
+                    <div class="md:basis-1/3 flex">
+                      <div class="flex-grow p-1 pt-2 mb-8 bg-anyai-gradient mx-2">
+                        <!-- <div class="bg-base-100 h-full p-6"> -->
+                        <div class="bg-base-100 h-full">
+                          <!-- <h2 class="text-2xl text-primary mb-2 grow">$ 0 costo inicial</h2>
+                          <p>No pagas para aplicar ni accederddsddsd a la carrera.</p> -->
+                          {% if filename %}
+                          <div>
+                              <img src="{{ url_for('app_router.display_image', filename=filename) }}">
+                          </div>
+                          {% endif %}
+                          
+                        </div>
+                      </div>
+                    </div>
+                    <div class="md:basis-1/3 flex flex-col justify-center items-center mb-8">
+                      <div class="hidden md:inline justify-center items-center">
+                        <span style="box-sizing:border-box;display:inline-block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:relative;max-width:100%">
+                          <span style="box-sizing:border-box;display:block;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;max-width:100%">
+                            <img style="display:block;max-width:100%;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0" alt="" aria-hidden="true" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIi8+">
+                          </span>
+                          <img alt="Next arrow" src="https://anyoneai.com/_next/image?url=%2Fimg%2Farrow_right.svg&w=32&q=75" decoding="async" data-nimg="intrinsic" class="m-auto" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%">
+                          <noscript>
+                            <img alt="Next arrow" src="/_next/image?url=%2Fimg%2Farrow_right.svg&amp;w=64&amp;q=75" decoding="async" data-nimg="intrinsic" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%" class="m-auto" loading="lazy"/>
+                          </noscript>
+                        </span>
+                      </div>
+                      <div class="mb-6 md:hidden justify-center items-center">
+                        <span style="box-sizing:border-box;display:inline-block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:relative;max-width:100%">
+                          <span style="box-sizing:border-box;display:block;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;max-width:100%">
+                            <img style="display:block;max-width:100%;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0" alt="" aria-hidden="true" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMzAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIi8+">
+                          </span>
+                          <img alt="Next arrow" src="https://anyoneai.com/_next/image?url=%2Fimg%2Farrow_down.svg&w=32&q=75" decoding="async" data-nimg="intrinsic" class="" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%">
+                          <noscript>
+                            <img alt="Next arrow" src="/_next/image?url=%2Fimg%2Farrow_down.svg&amp;w=48&amp;q=75" decoding="async" data-nimg="intrinsic" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%" class="" loading="lazy"/>
+                          </noscript>
+                        </span>
+                      </div>
+                      <p class="text-center">Preprocessing</p>
+                    </div>
+                    <div class="md:basis-1/3 flex">
+                      <div class="flex-grow p-1 pt-2 mb-8 bg-anyai-gradient mx-2">
+                        <div class="bg-base-100 h-full p-6">
+                          <h2 class="text-2xl text-primary mb-2 grow">% 7,5 de comisión</h2>
+                          <p>anual sobre tus primeros dos años de ingresos.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="text-center hidden">Puedes revisar todos los detalles en nuestros<!-- --> 
+                    <a class="text-primary" href="">términos y condiciones.</a>
+                  </p>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
 
                 <div class="form__group">
                   <p>Select a model</p>
@@ -556,7 +649,56 @@
 
 
 
-
+        <div class="md:container md:mx-auto text-accent px-12 py-12 sm:px-8 sm:py-8 md:py-12 lg:px-32 lg:py-24">
+          <h1 class="sm:text-3xl text-2xl font-medium title-font text-center text-primary">¿Cuánto cuesta?</h1>
+          <p class="text-center mb-16">No tiene costo de ningún tipo hasta que comiences a trabajar.</p>
+          <div class="md:flex md:flex-wrap justify-center">
+            <div class="md:basis-1/3 flex">
+              <div class="flex-grow p-1 pt-2 mb-8 bg-anyai-gradient mx-2">
+                <div class="bg-base-100 h-full p-6">
+                  <h2 class="text-2xl text-primary mb-2 grow">$ 0 costo inicial</h2>
+                  <p>No pagas para aplicar ni accederddsddsd a la carrera.</p>
+                </div>
+              </div>
+            </div>
+            <div class="md:basis-1/3 flex flex-col justify-center items-center mb-8">
+              <div class="hidden md:inline justify-center items-center">
+                <span style="box-sizing:border-box;display:inline-block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:relative;max-width:100%">
+                  <span style="box-sizing:border-box;display:block;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;max-width:100%">
+                    <img style="display:block;max-width:100%;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0" alt="" aria-hidden="true" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIi8+">
+                  </span>
+                  <img alt="Next arrow" src="https://anyoneai.com/_next/image?url=%2Fimg%2Farrow_right.svg&w=32&q=75" decoding="async" data-nimg="intrinsic" class="m-auto" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%">
+                  <noscript>
+                    <img alt="Next arrow" src="/_next/image?url=%2Fimg%2Farrow_right.svg&amp;w=64&amp;q=75" decoding="async" data-nimg="intrinsic" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%" class="m-auto" loading="lazy"/>
+                  </noscript>
+                </span>
+              </div>
+              <div class="mb-6 md:hidden justify-center items-center">
+                <span style="box-sizing:border-box;display:inline-block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:relative;max-width:100%">
+                  <span style="box-sizing:border-box;display:block;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;max-width:100%">
+                    <img style="display:block;max-width:100%;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0" alt="" aria-hidden="true" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMzAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIi8+">
+                  </span>
+                  <img alt="Next arrow" src="https://anyoneai.com/_next/image?url=%2Fimg%2Farrow_down.svg&w=32&q=75" decoding="async" data-nimg="intrinsic" class="" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%">
+                  <noscript>
+                    <img alt="Next arrow" src="/_next/image?url=%2Fimg%2Farrow_down.svg&amp;w=48&amp;q=75" decoding="async" data-nimg="intrinsic" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%" class="" loading="lazy"/>
+                  </noscript>
+                </span>
+              </div>
+              <p class="text-center">Solo si consigues trabajo</p>
+            </div>
+            <div class="md:basis-1/3 flex">
+              <div class="flex-grow p-1 pt-2 mb-8 bg-anyai-gradient mx-2">
+                <div class="bg-base-100 h-full p-6">
+                  <h2 class="text-2xl text-primary mb-2 grow">% 7,5 de comisión</h2>
+                  <p>anual sobre tus primeros dos años de ingresos.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="text-center hidden">Puedes revisar todos los detalles en nuestros<!-- --> 
+            <a class="text-primary" href="">términos y condiciones.</a>
+          </p>
+        </div>
 
 
 
