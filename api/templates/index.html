@@ -6,6 +6,561 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='web/style.css') }}">
     </head>
     <body>
+
+      <header class="header" data-preview-item="header" data-menu-style="" data-menu-type="header__nav--overlay" data-section-uid="page_header">
+        <div class="header__container">
+          <div class="header__wrapper">
+            <section class="header__logo header__logo___2909e">
+        
+          <a href="https://www.anyoneai.com">
+            <img src="https://import.cdn.thinkific.com/584472%2Fcustom_site_themes%2Fid%2FTHqSEWWPRje3DhepEnqo_logo_with_name.png" srcset="https://import.cdn.thinkific.com/584472%2Fcustom_site_themes%2Fid%2FTHqSEWWPRje3DhepEnqo_logo_with_name.png?width=384&amp;dpr=1 1x, https://import.cdn.thinkific.com/584472%2Fcustom_site_themes%2Fid%2FTHqSEWWPRje3DhepEnqo_logo_with_name.png?width=384&amp;dpr=2 2x, https://import.cdn.thinkific.com/584472%2Fcustom_site_themes%2Fid%2FTHqSEWWPRje3DhepEnqo_logo_with_name.png?width=384&amp;dpr=3 3x" alt="anyoneai.com" class="logo img-responsive" loading="lazy">
+            <h1 class="sr-only">
+              AnyoneAI
+            </h1>
+          </a>
+        
+      </section>
+      
+            <button class="header__mobile-button hidden-print" aria-expanded="false">
+        <span class="header__mobile-button__toggle-icon">
+          <span>Toggle menu</span>
+        </span>
+        <span class="header__mobile-button__label ">
+          Menu
+        </span>
+      </button>
+      <nav class="header__nav hidden-print">
+        <ul>
+          
+      
+      
+      
+          
+      
+      
+      
+          
+            <li class="header__nav-item header__nav-sign-in">
+              <a href="/users/sign_in">
+                Sign In
+              </a>
+            </li>
+          
+          
+        </ul>
+      </nav>
+      
+          </div>
+        </div>
+      </header>
+
+      <h1 class="page_heading">Welcome Back!</h1>
+      <h2 class="page_heading">Welcome Back!</h2>
+      <h2>Welcome Back!</h2>
+      <h4 class="page_heading">Welcome Back!</h4>
+      
+      <main class="sign-in" id="main-content2" role="main">
+        <article class="sign-in__form">
+          <h2 class="page__heading">
+            Welcome Back!
+          </h2>
+        </article>
+      </main>
+
+
+      <main class="sign-in" id="main-content2" role="main">
+        <div class="sign-in__container">
+          <div class="sign-in__wrapper">
+            <article class="sign-in__form">
+              <h2 class="page__heading">
+                Try out your own image!
+              </h2>
+                
+              <form method="post" action="/" enctype="multipart/form-data">
+                <div class="form__group">
+                  <input type="file" id="image_input2" name="file" class="hidden">
+                  <p>Select an image to &nbsp</p>
+                  <label for="image_input2" class="label_button"><u>Upload</u></label>
+                  <br>
+                </div>
+                <div id="display_image2"></div>
+
+                <div class="form__group">
+                  <p>Select a model</p>
+                  <!-- <br>
+                  <div>
+                    <label><input type="radio", name="rbtn_model_selection" value="ResNet50">ResNet50</label> <br>
+                    <label><input type="radio", name="rbtn_model_selection" value="ResNet101V2">ResNet101V2</label> <br>
+                    <label><input type="radio", name="rbtn_model_selection" value="MobileNet">MobileNet</label> <br>
+                    <label><input type="radio", name="rbtn_model_selection" value="VGG16">VGG16</label> <br>
+                    <label><input type="radio", name="rbtn_model_selection" value="Xception">Xception</label>
+                  </div> -->
+                </div>
+                <div class="form__group">
+                  <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</p>
+                  <div>
+                    <label><input type="radio", name="rbtn_model_selection" value="ResNet50">ResNet50</label> <br>
+                    <label><input type="radio", name="rbtn_model_selection" value="ResNet101V2">ResNet101V2</label> <br>
+                    <label><input type="radio", name="rbtn_model_selection" value="MobileNet">MobileNet</label> <br>
+                    <label><input type="radio", name="rbtn_model_selection" value="VGG16">VGG16</label> <br>
+                    <label><input type="radio", name="rbtn_model_selection" value="Xception">Xception</label>
+                  </div>
+                </div>
+                <div class="form__button-group">
+                  <div>
+                    <div class="grecaptcha-badge" data-style="bottomright" style="width: 256px; height: 60px; display: block; transition: right 0.3s ease 0s; position: fixed; bottom: 14px; right: -186px; box-shadow: gray 0px 0px 5px; border-radius: 2px; overflow: hidden;">
+                      <div class="grecaptcha-logo">
+                        <iframe title="reCAPTCHA" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LcC9KkZAAAAACd6VfH-PeYxGEshd5o9aqBRkoKm&amp;co=aHR0cHM6Ly9hY2FkZW15LmFueW9uZWFpLmNvbTo0NDM.&amp;hl=en&amp;v=NJPGLzpIZgjszqyOymHUP0XR&amp;size=invisible&amp;cb=xge7bbx2bqs" width="256" height="60" role="presentation" name="a-fj37gsgh52b8" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox">
+
+                        </iframe>
+                      </div>
+                      <div class="grecaptcha-error"></div>
+                      <textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;">
+                      </textarea>
+                    </div>
+                    <iframe style="display: none;"></iframe>
+                  </div>
+                  <button type="submit" class="button button-primary g-recaptcha" data-sitekey="6LcC9KkZAAAAACd6VfH-PeYxGEshd5o9aqBRkoKm">
+                    Sign in
+                  </button>
+                </div>
+              </form>
+            </article>
+          </div>
+        </div> 
+      </main>
+
+
+
+
+
+
+
+
+
+      <main class="sign-in" id="main-content" role="main">
+        <div class="sign-in__container">
+          <div class="sign-in__wrapper">
+            <a id="cst-v2-section-signin_form" style="opacity: 0; width: 0 !important; display: block;"></a>
+            <article class="sign-in__form">
+              <h2 class="page__heading">
+                Welcome Back!
+              </h2>
+      
+              <form id="sign_in_c0bbae7471" action="/users/sign_in" accept-charset="UTF-8" method="post">
+                <input name="utf8" type="hidden" value="✓" autocomplete="off">
+                <input type="hidden" name="authenticity_token" value="nuquiHXvlYMQUT/myfuFTWCWVdmdEgIzn5fTHdtyuMfQzE/ASJI7RPIf7fZ4AiX17AASDTY9V9AeUPauDQHYTA==" autocomplete="off">
+
+                <div id="notice" class="notice__form-error">
+                  <ul class="form-error__list">
+                    
+                      <li class="form-error__list-item" role="alert" data-qa="notification-error">You need to sign in or sign up before continuing.</li>
+                    
+                  </ul>
+                </div>
+          
+      
+                <div class="form__group">
+                  
+                  <label for="user[email]" class="form__label">
+                    Email
+                  </label>
+                  <input type="email" id="user[email]" name="user[email]" value="" placeholder="Email" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" required="" class="form__control" aria-describedby="user[email]-error" data-qa="sign-in-email__input">
+            
+                  <p id="user[email]-error" class="form__error-msg hidden2" role="alert">
+                    Please enter a valid email address
+                  </p>
+                </div>
+      
+                <div class="form__group">
+                  
+                  <label for="user[password]" class="form__label">
+                    Password
+                  </label>
+                  <input type="password" id="user[password]" name="user[password]" placeholder="Password" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" required="" class="form__control" aria-describedby="user[password]-error" data-qa="sign-in-password__input">
+            
+                  <p id="user[password]-error" class="form__error-msg hidden2" role="alert">
+                    Password must be at least 8 characters
+                  </p>
+                </div>
+      
+                <div class="form__group form__remember-me">
+              
+              
+                  <input type="hidden" name="user[remember_me]" value="0">
+            
+                  <input type="checkbox" id="user[remember_me]" name="user[remember_me]" value="1" class="form__control">
+                  <label for="user[remember_me]" class="form__label">
+                    Remember me
+                  </label>
+            
+                  <a href="/users/password/new" class="form__forgot-password">
+                    Forgot Password?
+                  </a>
+                </div>
+      
+              
+                <div class="form__group honeypot-field">
+                  <label aria-hidden="true" for="confirm-email">If you are a human, ignore this field</label>
+                  <input aria-hidden="true" type="text" name="confirm-email" id="confirm-email" autocomplete="off" tabindex="-1">
+                </div>
+      
+          
+                <script>
+                  var honeypotField = document.querySelector('.honeypot-field #confirm-email');
+                  function onSubmit(token) {
+                    if (honeypotField && honeypotField.value === '') {
+                      document.getElementsByTagName('form')[0].submit();
+                    } else {
+                      // Most likely a spam bot if the honeypot field has a value, don't submit form
+                      return false;
+                    }
+                  }
+                </script>
+                <div class="form__button-group">
+                  <div><div class="grecaptcha-badge" data-style="bottomright" style="width: 256px; height: 60px; display: block; transition: right 0.3s ease 0s; position: fixed; bottom: 14px; right: -186px; box-shadow: gray 0px 0px 5px; border-radius: 2px; overflow: hidden;"><div class="grecaptcha-logo"><iframe title="reCAPTCHA" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LcC9KkZAAAAACd6VfH-PeYxGEshd5o9aqBRkoKm&amp;co=aHR0cHM6Ly9hY2FkZW15LmFueW9uZWFpLmNvbTo0NDM.&amp;hl=en&amp;v=NJPGLzpIZgjszqyOymHUP0XR&amp;size=invisible&amp;cb=xge7bbx2bqs" width="256" height="60" role="presentation" name="a-fj37gsgh52b8" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe></div><div class="grecaptcha-error"></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;"></iframe></div><button type="submit" class="button button-primary g-recaptcha" data-sitekey="6LcC9KkZAAAAACd6VfH-PeYxGEshd5o9aqBRkoKm" data-callback="onSubmit">
+                    Sign in
+                  </button>
+                </div>
+      
+          
+              </form>
+      
+        
+      
+      
+        <div class="remote-sign-in__vendor-logins">
+          <h3 class="remote-sign-in__divider">
+            <span>Or sign in with</span>
+          </h3>
+          <h3 class="remote-sign-up__divider">
+            <span>Or sign up with</span>
+          </h3>
+          
+            <ul class="remote-sign-in__vendor-list">
+              
+                <li class="remote-sign-in__vendor-list-item">
+                  <a href="https://courses.thinkific.com/users/auth/linkedin?ss%5Breferral%5D=&amp;ss%5Buser_return_to%5D=%2Fenrollments&amp;ss%5Bvisitor_id%5D=1581262435" class="button linkedin" aria-label="https://courses.thinkific.com/users/auth/linkedin?ss%5Breferral%5D=&amp;ss%5Buser_return_to%5D=%2Fenrollments&amp;ss%5Bvisitor_id%5D=1581262435">
+                    <i class="fa toga-icon toga-icon-social-linkedIn" aria-hidden="true"></i>
+                  </a>
+                </li>
+              
+                <li class="remote-sign-in__vendor-list-item">
+                  <a href="https://courses.thinkific.com/users/auth/facebook?ss%5Breferral%5D=&amp;ss%5Buser_return_to%5D=%2Fenrollments&amp;ss%5Bvisitor_id%5D=1581262435" class="button facebook" aria-label="https://courses.thinkific.com/users/auth/facebook?ss%5Breferral%5D=&amp;ss%5Buser_return_to%5D=%2Fenrollments&amp;ss%5Bvisitor_id%5D=1581262435">
+                    <i class="fa toga-icon toga-icon-social-facebook" aria-hidden="true"></i>
+                  </a>
+                </li>
+              
+                <li class="remote-sign-in__vendor-list-item">
+                  <a href="https://courses.thinkific.com/users/auth/google?ss%5Breferral%5D=&amp;ss%5Buser_return_to%5D=%2Fenrollments&amp;ss%5Bvisitor_id%5D=1581262435" class="button google" aria-label="https://courses.thinkific.com/users/auth/google?ss%5Breferral%5D=&amp;ss%5Buser_return_to%5D=%2Fenrollments&amp;ss%5Bvisitor_id%5D=1581262435">
+                    <i class="fa toga-icon toga-icon-social-google-colorized" aria-hidden="true"></i>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </div>
+      
+      
+      </article>
+      
+      <aside class="sign-in__sign-up">
+        <a href="/users/sign_up">
+          Create a new account
+        </a>
+      </aside>
+      
+      
+      
+      <script>
+        function addErrorMsg(fieldId, errorId) {
+          fieldId.addClass('input--error');
+          fieldId.attr("aria-invalid", "true");
+          errorId.removeClass('hidden2');
+        }
+        function removeErrorMsg(fieldId, errorId) {
+          fieldId.removeClass('input--error');
+          fieldId.attr("aria-invalid", "false");
+          errorId.addClass('hidden2');
+        }
+      
+        var regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        var $email = $('#user\\[email\\]');
+        var $emailError = $('#user\\[email\\]-error')
+        $email.on('focusout', function() {
+          if (!regex.test($email.val())) {
+            addErrorMsg($email, $emailError);
+          } else {
+            removeErrorMsg($email, $emailError);
+          }
+        });
+        var $leadCapture = $('#-email')
+        var $leadCaptureError = $('#-error')
+        $leadCapture.on('focusout', function() {
+          if (!regex.test($leadCapture.val())) {
+            addErrorMsg($leadCapture, $leadCaptureError);
+          } else {
+            removeErrorMsg($leadCapture, $leadCaptureError);
+          }
+        });
+      
+        var $password = $('#user\\[password\\]');
+        var $passwordError = $('#user\\[password\\]-error')
+        $password.on('focusout', function() {
+        if ($password.val().length < 6) {
+          addErrorMsg($password, $passwordError);
+        } else {
+          removeErrorMsg($password, $passwordError);
+        }
+        });
+      
+        var $firstName = $('#user\\[first_name\\]');
+        var $firstNameError = $('#user\\[first_name\\]-error');
+        $firstName.on('focusout', function() {
+          if ($firstName.val() === '') {
+            addErrorMsg($firstName, $firstNameError);
+          } else {
+            removeErrorMsg($firstName, $firstNameError);
+          }
+        });
+      
+        var $lastName = $('#user\\[last_name\\]');
+        var $lastNameError = $('#user\\[last_name\\]-error');
+        $lastName.on('focusout', function() {
+          if ($lastName.val() === '') {
+            addErrorMsg($lastName, $lastNameError);
+          } else {
+            removeErrorMsg($lastName, $lastNameError);
+          }
+        });
+      
+        var $checkbox = $('#user\\[terms\\]');
+        var $checkboxError = $('#user\\[terms\\]-error');
+        $checkbox.on('focusout', function() {
+          if (!$checkbox.is(':checked')) {
+            addErrorMsg($checkbox, $checkboxError);
+          } else {
+            removeErrorMsg($checkbox, $checkboxError);
+          }
+        });
+      
+        var $file = $('.my-account__avatar-label');
+        $file.on('change', function() {
+          $file.append('<p id="my-account__avatar--error" class="sr-only" role="alert">liquid.partials.form.file_changed</p>')
+        });
+      
+        var $select = $('.custom-select');
+        var $selectError = $('#custom-select-error')
+        $select.on('focusout', function() {
+          if($(this).prop('required')){
+            if (!$select.val()) {
+              addErrorMsg($select, $selectError);
+            } else {
+              removeErrorMsg($select, $selectError);
+            }
+          }
+        });
+      
+        var $customField = $('.custom-field');
+        var $customFieldError = $('#custom-field-error');
+        $customField.on('focusout', function() {
+          if($(this).prop('required')){
+            if ($customField.val() === '') {
+              addErrorMsg($customField, $customFieldError);
+            } else {
+              removeErrorMsg($customField, $customFieldError);
+            }
+          }
+        });
+      </script>
+      
+      
+      
+      
+          </div>
+        </div>
+        
+      </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
+
+
+
+      <article class="sign-in__form">
+        <h2 class="page__heading">
+          Welcome Back!
+        </h2>
+      
+        <form id="sign_in_80fd4a64bf" action="/users/sign_in" accept-charset="UTF-8" method="post">
+      <input name="utf8" type="hidden" value="✓" autocomplete="off"><input type="hidden" name="authenticity_token" value="MROmmRb02S3Nbz/zyGoQn2nxOPf31RYhpk66t41SkScbAQMMf7cQtg4ufxqHC2EnQJ2YT45ZiOEt+vPuKdCeVA==" autocomplete="off">
+          
+            
+      
+      <div id="notice" class="notice__form-error">
+        <ul class="form-error__list">
+          
+            <li class="form-error__list-item" role="alert" data-qa="notification-error">You need to sign in or sign up before continuing.</li>
+          
+        </ul>
+      </div>
+      
+          
+      
+          <div class="form__group">
+            
+            <label for="user[email]" class="form__label">
+              Email
+            </label>
+            <input type="email" id="user[email]" name="user[email]" value="" placeholder="Email" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" required="" class="form__control input--error" aria-describedby="user[email]-error" data-qa="sign-in-email__input" aria-invalid="true">
+      
+            <p id="user[email]-error" class="form__error-msg" role="alert">
+              Please enter a valid email address
+            </p>
+          </div>
+      
+          <div class="form__group">
+            
+            <label for="user[password]" class="form__label">
+              Password
+            </label>
+            <input type="password" id="user[password]" name="user[password]" placeholder="Password" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" required="" class="form__control" aria-describedby="user[password]-error" data-qa="sign-in-password__input">
+      
+            <p id="user[password]-error" class="form__error-msg hidden" role="alert">
+              Password must be at least 8 characters
+            </p>
+          </div>
+      
+          <div class="form__group form__remember-me">
+            
+            
+            <input type="hidden" name="user[remember_me]" value="0">
+      
+            <input type="checkbox" id="user[remember_me]" name="user[remember_me]" value="1" class="form__control">
+            <label for="user[remember_me]" class="form__label">
+              Remember me
+            </label>
+      
+            <a href="/users/password/new" class="form__forgot-password">
+              Forgot Password?
+            </a>
+          </div>
+      
+          
+          <div class="form__group honeypot-field">
+            <label aria-hidden="true" for="confirm-email">If you are a human, ignore this field</label>
+            <input aria-hidden="true" type="text" name="confirm-email" id="confirm-email" autocomplete="off" tabindex="-1">
+          </div>
+      
+          
+            <script>
+        var honeypotField = document.querySelector('.honeypot-field #confirm-email');
+        function onSubmit(token) {
+          if (honeypotField && honeypotField.value === '') {
+            document.getElementsByTagName('form')[0].submit();
+          } else {
+            // Most likely a spam bot if the honeypot field has a value, don't submit form
+            return false;
+          }
+        }
+      </script>
+      <div class="form__button-group">
+        <div><div class="grecaptcha-badge" data-style="bottomright" style="width: 256px; height: 60px; display: block; transition: right 0.3s ease 0s; position: fixed; bottom: 14px; right: -186px; box-shadow: gray 0px 0px 5px; border-radius: 2px; overflow: hidden;"><div class="grecaptcha-logo"><iframe title="reCAPTCHA" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LcC9KkZAAAAACd6VfH-PeYxGEshd5o9aqBRkoKm&amp;co=aHR0cHM6Ly9hY2FkZW15LmFueW9uZWFpLmNvbTo0NDM.&amp;hl=en&amp;v=NJPGLzpIZgjszqyOymHUP0XR&amp;size=invisible&amp;cb=frrvmqfv2gl9" width="256" height="60" role="presentation" name="a-qr1x6r8jkvvv" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe></div><div class="grecaptcha-error"></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;"></iframe></div><button type="submit" class="button button-primary g-recaptcha" data-sitekey="6LcC9KkZAAAAACd6VfH-PeYxGEshd5o9aqBRkoKm" data-callback="onSubmit">
+          Sign in
+        </button>
+      </div>
+      
+          
+        </form>
+      
+        
+      
+      
+        <div class="remote-sign-in__vendor-logins">
+          <h3 class="remote-sign-in__divider">
+            <span>Or sign in with</span>
+          </h3>
+          <h3 class="remote-sign-up__divider">
+            <span>Or sign up with</span>
+          </h3>
+          
+            <ul class="remote-sign-in__vendor-list">
+              
+                <li class="remote-sign-in__vendor-list-item">
+                  <a href="https://courses.thinkific.com/users/auth/linkedin?ss%5Breferral%5D=&amp;ss%5Buser_return_to%5D=%2Fcourses%2Ftake%2Ffulltime-ay22-03%2Flessons%2F39843127-1-monday-s-session&amp;ss%5Bvisitor_id%5D=1581296674" class="button linkedin" aria-label="https://courses.thinkific.com/users/auth/linkedin?ss%5Breferral%5D=&amp;ss%5Buser_return_to%5D=%2Fcourses%2Ftake%2Ffulltime-ay22-03%2Flessons%2F39843127-1-monday-s-session&amp;ss%5Bvisitor_id%5D=1581296674">
+                    <i class="fa toga-icon toga-icon-social-linkedIn" aria-hidden="true"></i>
+                  </a>
+                </li>
+              
+                <li class="remote-sign-in__vendor-list-item">
+                  <a href="https://courses.thinkific.com/users/auth/facebook?ss%5Breferral%5D=&amp;ss%5Buser_return_to%5D=%2Fcourses%2Ftake%2Ffulltime-ay22-03%2Flessons%2F39843127-1-monday-s-session&amp;ss%5Bvisitor_id%5D=1581296674" class="button facebook" aria-label="https://courses.thinkific.com/users/auth/facebook?ss%5Breferral%5D=&amp;ss%5Buser_return_to%5D=%2Fcourses%2Ftake%2Ffulltime-ay22-03%2Flessons%2F39843127-1-monday-s-session&amp;ss%5Bvisitor_id%5D=1581296674">
+                    <i class="fa toga-icon toga-icon-social-facebook" aria-hidden="true"></i>
+                  </a>
+                </li>
+              
+                <li class="remote-sign-in__vendor-list-item">
+                  <a href="https://courses.thinkific.com/users/auth/google?ss%5Breferral%5D=&amp;ss%5Buser_return_to%5D=%2Fcourses%2Ftake%2Ffulltime-ay22-03%2Flessons%2F39843127-1-monday-s-session&amp;ss%5Bvisitor_id%5D=1581296674" class="button google" aria-label="https://courses.thinkific.com/users/auth/google?ss%5Breferral%5D=&amp;ss%5Buser_return_to%5D=%2Fcourses%2Ftake%2Ffulltime-ay22-03%2Flessons%2F39843127-1-monday-s-session&amp;ss%5Bvisitor_id%5D=1581296674">
+                    <i class="fa toga-icon toga-icon-social-google-colorized" aria-hidden="true"></i>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </div>
+      
+      
+      </article>
+
+
+
+ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <!-- <p id="paragraph">Change one element property by clicking a button</p>
         <button id="mybtn">  Click me!</button> -->
         <!-- <input type="file" id="image_input" accept="image/png, image/jpeg, image/jpg"> -->
