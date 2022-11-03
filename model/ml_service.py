@@ -97,7 +97,7 @@ def classify_process():
       job_data = json.loads(job_data_str.decode('utf-8'))
 
       # Run ML model on the given data
-      class_name, pred_probability = predict(job_data['image_name'])
+      class_name, pred_probability = predict(job_data['image_name'], job_data['NNmodel'])
       pred_dict = {
                     "prediction": class_name,
                     "score": float(pred_probability)

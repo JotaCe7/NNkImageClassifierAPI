@@ -12,7 +12,7 @@ db = redis.Redis( host=settings.REDIS_IP,
                 )
 
 
-def model_predict(image_name):
+def model_predict(image_name, NNmodel='ResNet50'):
   """
   Receives an image name and queues the job into Redis.
   Will loop until getting the answer from our ML service.
@@ -33,7 +33,7 @@ def model_predict(image_name):
 
   # Assign an unique ID for this job and add it to the queue.
   job_id = str(uuid4())
-  job_data = {"id": job_id, "image_name": image_name}
+  job_data = {"id": job_id, "image_name": image_name, "NNmodel": NNmodel}
   
   # Send the job to the model service using Redis
   db.lpush(settings.REDIS_QUEUE, json.dumps(job_data))
