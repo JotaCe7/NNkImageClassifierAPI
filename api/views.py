@@ -48,9 +48,11 @@ def index():
       hashed_name = utils.get_file_hash(file)
       file_path = os.path.join(settings.UPLOAD_FOLDER, hashed_name)
       file.save(file_path)
+      NNmodel = request.form['rbtn_model_selection']
+      flash(NNmodel)
 
       # Send the file to be processed by the `model` service
-      prediction, score = model_predict(hashed_name)
+      prediction, score = model_predict(hashed_name, NNmodel)
       
       # Update `render_template()` parameters
       context = {
