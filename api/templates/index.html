@@ -37,8 +37,26 @@
         </div>
       </header>
 
-      <h1 class="page_heading">Welcome Back!</h1>
-      
+      <h1 class="page_heading">ImageNet classification with Python and Keras</h1>
+
+        <p>Keras is an open-source software library that provides a Python interface for artificial neural networks. Keras acts as an interface for the TensorFlow library.</p>
+        <p>The main purpose of this API is to make someprediction for user images with already trained Keras models using the ImageNet Dataset</p>
+        <p>In the remainder of this tutorial, I’ll explain what the ImageNet dataset is, and then provide Python and Keras code to classify images into <em>1,000 different categories</em> using <em>state-of-the-art</em> network architectures.</p>
+        <h3>What is ImageNet?</h3>
+        <p>Within computer vision and deep learning communities, you might run into a bit of contextual confusion surrounding what ImageNet is and what it isn’t.</p>
+        <p>You see, <a href="http://image-net.org/index" target="_blank" rel="noopener noreferrer">ImageNet</a> is actually a <em>project</em> aimed at labeling and categorizing images into almost 22,000 categories based on a defined set of words and phrases. At the time of this writing, there are over <em>14 million images</em> in the ImageNet project.</p>
+        <p>So, how is ImageNet organized?</p>
+        <p>To order such a massive amount of data, ImageNet actually follows the <a href="https://wordnet.princeton.edu/" target="_blank" rel="noopener noreferrer">WordNet hierarchy</a>. Each meaningful word/phrase inside WordNet is called a “synonym set” or “synset” for short. Within the ImageNet project, images are organized according to these synsets, with the goal being to have 1,000+ images per synset.</p>
+        <h4>ImageNet Large Scale Recognition Challenge (ILSVRC)</h4>
+        <p>In the context of computer vision and deep learning, whenever you hear people talking about ImageNet, they are very likely referring to the <em><a href="http://www.image-net.org/challenges/LSVRC/" target="_blank" rel="noopener noreferrer">ImageNet Large Scale Recognition Challenge</a></em>, or simply ILSVRC for short.</p>
+        <p>The goal of the image classification track in this challenge is to train a model that can classify an image into <em>1,000 separate categories</em> using over <em>100,000</em> test images — the training dataset itself consists of approximately 1.2 million images.</p>
+        <h3>Configuring your system for Keras and ImageNet</h3>
+        <p>Althought Keras ofitial documentation lacks of detailed examples on how to implement it, there are a lot of external resources which covers this in detail.</p>
+        <p>A good start ifyou are a beginner is this <a href="https://pyimagesearch.com/2017/09/25/configuring-ubuntu-for-deep-learning-with-python/" target="_blank" rel="noopener noreferrer">latest tutorial on installing Keras on Ubuntu</a> or <a href="https://pyimagesearch.com/2017/09/29/macos-for-deep-learning-with-python-tensorflow-and-keras/" target="_blank" rel="noopener noreferrer">on macOS</a>. GPU Ubuntu users should see <a href="https://pyimagesearch.com/2017/09/27/setting-up-ubuntu-16-04-cuda-gpu-for-deep-learning-with-python/" target="_blank" rel="noopener noreferrer">this tutorial</a>.</p>
+        <p>The Keras library will use PIL/Pillow for some helper functions (such as loading an image from disk). You can install <a href="https://python-pillow.org/" target="_blank" rel="noopener noreferrer">Pillow</a>, the more Python friendly fork of PIL, by using this command:</p>
+        <p>After being sure you have everything correctly installed, you can follow <a href="https://pyimagesearch.com/2016/08/10/imagenet-classification-with-python-and-keras/" target="balnk" rel="noopener noreferrer">this tutotial</a> </p>
+        <p>But if you are so excited to test this powerful library, <strong>worry you should not</strong> Here you can make some predictions on your own images with some Keras models. In case you get a bad prediction, please let us know about it using the <strong>Feedback</strong> button. </p>
+        
 
       <main class="sign-in" id="main-content2" role="main">
         <div class="sign-in__container">
