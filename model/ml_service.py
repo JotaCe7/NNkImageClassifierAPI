@@ -2,6 +2,8 @@ import json
 import os
 import time
 
+from PIL import Image
+
 import numpy as np
 import redis
 import settings
@@ -62,6 +64,12 @@ def predict(image_name, NNmodel='ResNet50'):
     model = globals()[NNmodel]
     model_class= models[NNmodel]
     x_batch = model_class.preprocess_input(x_batch)
+
+    # Save preprocessed image
+    preprocessed_batch = (x_batch[0] + 128).astype(np.uint8)
+    preprocessed_image = Image.fromarray(preprocessed_batch)
+    preprocessed_image.save(os.path.join(settings.PREPROCESS_FOLDER,image_name))
+
     preds = model.predict(x_batch)
     best_pred = model_class.decode_predictions(preds, top=1)
     class_name = best_pred[0][0][1]

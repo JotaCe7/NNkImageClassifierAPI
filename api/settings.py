@@ -6,6 +6,8 @@ API_DEBUG = True
 # We will store images uploaded by the user on this folder
 UPLOAD_FOLDER = "static/uploads/"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+PREPROCESS_FOLDER= "static/uploads/preprocessed"
+os.makedirs(PREPROCESS_FOLDER, exist_ok=True)
 
 # We will store user feedback on this file
 FEEDBACK_FILEPATH = "feedback/feedback"

@@ -3,6 +3,8 @@ import os
 # We will store images uploaded by the user on this folder
 UPLOAD_FOLDER = "uploads/"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+PREPROCESS_FOLDER= "uploads/preprocessed"
+os.makedirs(PREPROCESS_FOLDER, exist_ok=True)
 
 # REDIS
 # Queue name
