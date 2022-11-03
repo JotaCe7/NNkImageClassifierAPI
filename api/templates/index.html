@@ -11,44 +11,27 @@
         <div class="header__container">
           <div class="header__wrapper">
             <section class="header__logo header__logo___2909e">
-        
-          <a href="https://www.anyoneai.com">
-            <img src="https://import.cdn.thinkific.com/584472%2Fcustom_site_themes%2Fid%2FTHqSEWWPRje3DhepEnqo_logo_with_name.png" srcset="https://import.cdn.thinkific.com/584472%2Fcustom_site_themes%2Fid%2FTHqSEWWPRje3DhepEnqo_logo_with_name.png?width=384&amp;dpr=1 1x, https://import.cdn.thinkific.com/584472%2Fcustom_site_themes%2Fid%2FTHqSEWWPRje3DhepEnqo_logo_with_name.png?width=384&amp;dpr=2 2x, https://import.cdn.thinkific.com/584472%2Fcustom_site_themes%2Fid%2FTHqSEWWPRje3DhepEnqo_logo_with_name.png?width=384&amp;dpr=3 3x" alt="anyoneai.com" class="logo img-responsive" loading="lazy">
-            <h1 class="sr-only">
-              AnyoneAI
-            </h1>
-          </a>
-        
-      </section>
+              <a href="https://www.anyoneai.com">
+                <img src="https://import.cdn.thinkific.com/584472%2Fcustom_site_themes%2Fid%2FTHqSEWWPRje3DhepEnqo_logo_with_name.png" srcset="https://import.cdn.thinkific.com/584472%2Fcustom_site_themes%2Fid%2FTHqSEWWPRje3DhepEnqo_logo_with_name.png?width=384&amp;dpr=1 1x, https://import.cdn.thinkific.com/584472%2Fcustom_site_themes%2Fid%2FTHqSEWWPRje3DhepEnqo_logo_with_name.png?width=384&amp;dpr=2 2x, https://import.cdn.thinkific.com/584472%2Fcustom_site_themes%2Fid%2FTHqSEWWPRje3DhepEnqo_logo_with_name.png?width=384&amp;dpr=3 3x" alt="anyoneai.com" class="logo img-responsive" loading="lazy">
+                <h1 class="sr-only">AnyoneAI</h1>
+              </a>
+            </section>
       
             <button class="header__mobile-button hidden-print" aria-expanded="false">
-        <span class="header__mobile-button__toggle-icon">
-          <span>Toggle menu</span>
-        </span>
-        <span class="header__mobile-button__label ">
-          Menu
-        </span>
-      </button>
-      <nav class="header__nav hidden-print">
-        <ul>
-          
-      
-      
-      
-          
-      
-      
-      
-          
-            <li class="header__nav-item header__nav-sign-in">
-              <a href="/users/sign_in">
-                Sign In
-              </a>
-            </li>
-          
-          
-        </ul>
-      </nav>
+              <span class="header__mobile-button__toggle-icon">
+                <span>Toggle menu</span>
+              </span>
+              <span class="header__mobile-button__label ">
+                Menu
+              </span>
+            </button>
+            <nav class="header__nav hidden-print">
+              <ul>
+                <li class="header__nav-item header__nav-sign-in">
+                  <a href="/users/sign_in">Sign In</a>
+                </li>
+              </ul>
+            </nav>
       
           </div>
         </div>
@@ -106,24 +89,36 @@
                 </div>
                 {% endif %}
 
+                <p class="messages">
+                  {% with messages = get_flashed_messages() %}
+                  {% if messages %}
+                      <ul>
+                      {% for message in messages %}
+                      <li>{{ message }}</li>
+                      {% endfor %}
+                      </ul>
+                  {% endif %}
+                  {% endwith %}
+                </p>
 
 
 
-                <div class="md:container md:mx-auto text-accent px-12 py-12 sm:px-8 sm:py-8 md:py-12 lg:px-32 lg:py-24">
+                {% if filename %}
+                <div class="md:container md:mx-auto text-accent px-12 py-12 sm:px-8 sm:py-8 md:py-12 lg:py-24">
                   <h1 class="sm:text-3xl text-2xl font-medium title-font text-center text-primary">¿Cuánto cuesta?</h1>
                   <p class="text-center mb-16">No tiene costo de ningún tipo hasta que comiences a trabajar.</p>
                   <div class="md:flex md:flex-wrap justify-center">
-                    <div class="md:basis-1/3 flex">
-                      <div class="flex-grow p-1 pt-2 mb-8 bg-anyai-gradient mx-2">
+                    <div class="md:basis-1/3 flex justify-center">
+                      <!-- <div class="flex-grow p-1 pt-2 mb-8 bg-anyai-gradient mx-2"> -->
+                      <div class="p-1 pt-2 mb-8 bg-anyai-gradient mx-2">
                         <!-- <div class="bg-base-100 h-full p-6"> -->
-                        <div class="bg-base-100 h-full">
+                        <div class="bg-base-100">
                           <!-- <h2 class="text-2xl text-primary mb-2 grow">$ 0 costo inicial</h2>
                           <p>No pagas para aplicar ni accederddsddsd a la carrera.</p> -->
-                          {% if filename %}
-                          <div>
-                              <img src="{{ url_for('app_router.display_image', filename=filename) }}">
+                          
+                          <div class="output-image-container">
+                              <img class="output-image" src="{{ url_for('app_router.display_image', filename=filename) }}">
                           </div>
-                          {% endif %}
                           
                         </div>
                       </div>
@@ -135,9 +130,6 @@
                             <img style="display:block;max-width:100%;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0" alt="" aria-hidden="true" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIi8+">
                           </span>
                           <img alt="Next arrow" src="https://anyoneai.com/_next/image?url=%2Fimg%2Farrow_right.svg&w=32&q=75" decoding="async" data-nimg="intrinsic" class="m-auto" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%">
-                          <noscript>
-                            <img alt="Next arrow" src="/_next/image?url=%2Fimg%2Farrow_right.svg&amp;w=64&amp;q=75" decoding="async" data-nimg="intrinsic" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%" class="m-auto" loading="lazy"/>
-                          </noscript>
                         </span>
                       </div>
                       <div class="mb-6 md:hidden justify-center items-center">
@@ -146,18 +138,20 @@
                             <img style="display:block;max-width:100%;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0" alt="" aria-hidden="true" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMzAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIi8+">
                           </span>
                           <img alt="Next arrow" src="https://anyoneai.com/_next/image?url=%2Fimg%2Farrow_down.svg&w=32&q=75" decoding="async" data-nimg="intrinsic" class="" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%">
-                          <noscript>
-                            <img alt="Next arrow" src="/_next/image?url=%2Fimg%2Farrow_down.svg&amp;w=48&amp;q=75" decoding="async" data-nimg="intrinsic" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%" class="" loading="lazy"/>
-                          </noscript>
-                        </span>
+                          </span>
                       </div>
                       <p class="text-center">Preprocessing</p>
                     </div>
-                    <div class="md:basis-1/3 flex">
-                      <div class="flex-grow p-1 pt-2 mb-8 bg-anyai-gradient mx-2">
-                        <div class="bg-base-100 h-full p-6">
-                          <h2 class="text-2xl text-primary mb-2 grow">% 7,5 de comisión</h2>
-                          <p>anual sobre tus primeros dos años de ingresos.</p>
+                    <div class="md:basis-1/3 flex justify-center">
+                      <!-- <div class="flex-grow p-1 pt-2 mb-8 bg-anyai-gradient mx-2"> --> 
+                      <div class="p-1 pt-2 mb-8 bg-anyai-gradient mx-2">
+                        <!-- <div class="bg-base-100 h-full p-6"> -->
+                        <div class="bg-base-100"> 
+                          <!-- <h2 class="text-2xl text-primary mb-2 grow">% 7,5 de comisión</h2>
+                          <p>anual sobre tus primeros dos años de ingresos.</p> -->
+                          <div class="output-image-container">
+                            <img class="output-image" src="{{ url_for('app_router.display_preprocessed_image', filename=filename) }}" alt="Preprocessed image">
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -166,6 +160,7 @@
                     <a class="text-primary" href="">términos y condiciones.</a>
                   </p>
                 </div>
+                {% endif %} 
 
 
 
@@ -214,7 +209,7 @@
                     <iframe style="display: none;"></iframe>
                   </div>
                   <button type="submit" class="button button-primary g-recaptcha" data-sitekey="6LcC9KkZAAAAACd6VfH-PeYxGEshd5o9aqBRkoKm">
-                    Sign in
+                    Male Prediction
                   </button>
                 </div>
               </form>
@@ -230,686 +225,6 @@
 
 
 
-
-      <main class="sign-in" id="main-content" role="main">
-        <div class="sign-in__container">
-          <div class="sign-in__wrapper">
-            <a id="cst-v2-section-signin_form" style="opacity: 0; width: 0 !important; display: block;"></a>
-            <article class="sign-in__form">
-              <h2 class="page__heading">
-                Welcome Back!
-              </h2>
-      
-              <form id="sign_in_c0bbae7471" action="/users/sign_in" accept-charset="UTF-8" method="post">
-                <input name="utf8" type="hidden" value="✓" autocomplete="off">
-                <input type="hidden" name="authenticity_token" value="nuquiHXvlYMQUT/myfuFTWCWVdmdEgIzn5fTHdtyuMfQzE/ASJI7RPIf7fZ4AiX17AASDTY9V9AeUPauDQHYTA==" autocomplete="off">
-
-                <div id="notice" class="notice__form-error">
-                  <ul class="form-error__list">
-                    
-                      <li class="form-error__list-item" role="alert" data-qa="notification-error">You need to sign in or sign up before continuing.</li>
-                    
-                  </ul>
-                </div>
-          
-      
-                <div class="form__group">
-                  
-                  <label for="user[email]" class="form__label">
-                    Email
-                  </label>
-                  <input type="email" id="user[email]" name="user[email]" value="" placeholder="Email" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" required="" class="form__control" aria-describedby="user[email]-error" data-qa="sign-in-email__input">
-            
-                  <p id="user[email]-error" class="form__error-msg hidden2" role="alert">
-                    Please enter a valid email address
-                  </p>
-                </div>
-      
-                <div class="form__group">
-                  
-                  <label for="user[password]" class="form__label">
-                    Password
-                  </label>
-                  <input type="password" id="user[password]" name="user[password]" placeholder="Password" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" required="" class="form__control" aria-describedby="user[password]-error" data-qa="sign-in-password__input">
-            
-                  <p id="user[password]-error" class="form__error-msg hidden2" role="alert">
-                    Password must be at least 8 characters
-                  </p>
-                </div>
-      
-                <div class="form__group form__remember-me">
-              
-              
-                  <input type="hidden" name="user[remember_me]" value="0">
-            
-                  <input type="checkbox" id="user[remember_me]" name="user[remember_me]" value="1" class="form__control">
-                  <label for="user[remember_me]" class="form__label">
-                    Remember me
-                  </label>
-            
-                  <a href="/users/password/new" class="form__forgot-password">
-                    Forgot Password?
-                  </a>
-                </div>
-      
-              
-                <div class="form__group honeypot-field">
-                  <label aria-hidden="true" for="confirm-email">If you are a human, ignore this field</label>
-                  <input aria-hidden="true" type="text" name="confirm-email" id="confirm-email" autocomplete="off" tabindex="-1">
-                </div>
-      
-          
-                <script>
-                  var honeypotField = document.querySelector('.honeypot-field #confirm-email');
-                  function onSubmit(token) {
-                    if (honeypotField && honeypotField.value === '') {
-                      document.getElementsByTagName('form')[0].submit();
-                    } else {
-                      // Most likely a spam bot if the honeypot field has a value, don't submit form
-                      return false;
-                    }
-                  }
-                </script>
-                <div class="form__button-group">
-                  <div><div class="grecaptcha-badge" data-style="bottomright" style="width: 256px; height: 60px; display: block; transition: right 0.3s ease 0s; position: fixed; bottom: 14px; right: -186px; box-shadow: gray 0px 0px 5px; border-radius: 2px; overflow: hidden;"><div class="grecaptcha-logo"><iframe title="reCAPTCHA" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LcC9KkZAAAAACd6VfH-PeYxGEshd5o9aqBRkoKm&amp;co=aHR0cHM6Ly9hY2FkZW15LmFueW9uZWFpLmNvbTo0NDM.&amp;hl=en&amp;v=NJPGLzpIZgjszqyOymHUP0XR&amp;size=invisible&amp;cb=xge7bbx2bqs" width="256" height="60" role="presentation" name="a-fj37gsgh52b8" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe></div><div class="grecaptcha-error"></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;"></iframe></div><button type="submit" class="button button-primary g-recaptcha" data-sitekey="6LcC9KkZAAAAACd6VfH-PeYxGEshd5o9aqBRkoKm" data-callback="onSubmit">
-                    Sign in
-                  </button>
-                </div>
-      
-          
-              </form>
-      
-        
-      
-      
-        <div class="remote-sign-in__vendor-logins">
-          <h3 class="remote-sign-in__divider">
-            <span>Or sign in with</span>
-          </h3>
-          <h3 class="remote-sign-up__divider">
-            <span>Or sign up with</span>
-          </h3>
-          
-            <ul class="remote-sign-in__vendor-list">
-              
-                <li class="remote-sign-in__vendor-list-item">
-                  <a href="https://courses.thinkific.com/users/auth/linkedin?ss%5Breferral%5D=&amp;ss%5Buser_return_to%5D=%2Fenrollments&amp;ss%5Bvisitor_id%5D=1581262435" class="button linkedin" aria-label="https://courses.thinkific.com/users/auth/linkedin?ss%5Breferral%5D=&amp;ss%5Buser_return_to%5D=%2Fenrollments&amp;ss%5Bvisitor_id%5D=1581262435">
-                    <i class="fa toga-icon toga-icon-social-linkedIn" aria-hidden="true"></i>
-                  </a>
-                </li>
-              
-                <li class="remote-sign-in__vendor-list-item">
-                  <a href="https://courses.thinkific.com/users/auth/facebook?ss%5Breferral%5D=&amp;ss%5Buser_return_to%5D=%2Fenrollments&amp;ss%5Bvisitor_id%5D=1581262435" class="button facebook" aria-label="https://courses.thinkific.com/users/auth/facebook?ss%5Breferral%5D=&amp;ss%5Buser_return_to%5D=%2Fenrollments&amp;ss%5Bvisitor_id%5D=1581262435">
-                    <i class="fa toga-icon toga-icon-social-facebook" aria-hidden="true"></i>
-                  </a>
-                </li>
-              
-                <li class="remote-sign-in__vendor-list-item">
-                  <a href="https://courses.thinkific.com/users/auth/google?ss%5Breferral%5D=&amp;ss%5Buser_return_to%5D=%2Fenrollments&amp;ss%5Bvisitor_id%5D=1581262435" class="button google" aria-label="https://courses.thinkific.com/users/auth/google?ss%5Breferral%5D=&amp;ss%5Buser_return_to%5D=%2Fenrollments&amp;ss%5Bvisitor_id%5D=1581262435">
-                    <i class="fa toga-icon toga-icon-social-google-colorized" aria-hidden="true"></i>
-                  </a>
-                </li>
-              
-            </ul>
-          
-        </div>
-      
-      
-      </article>
-      
-      <aside class="sign-in__sign-up">
-        <a href="/users/sign_up">
-          Create a new account
-        </a>
-      </aside>
-      
-      
-      
-      <script>
-        function addErrorMsg(fieldId, errorId) {
-          fieldId.addClass('input--error');
-          fieldId.attr("aria-invalid", "true");
-          errorId.removeClass('hidden2');
-        }
-        function removeErrorMsg(fieldId, errorId) {
-          fieldId.removeClass('input--error');
-          fieldId.attr("aria-invalid", "false");
-          errorId.addClass('hidden2');
-        }
-      
-        var regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        var $email = $('#user\\[email\\]');
-        var $emailError = $('#user\\[email\\]-error')
-        $email.on('focusout', function() {
-          if (!regex.test($email.val())) {
-            addErrorMsg($email, $emailError);
-          } else {
-            removeErrorMsg($email, $emailError);
-          }
-        });
-        var $leadCapture = $('#-email')
-        var $leadCaptureError = $('#-error')
-        $leadCapture.on('focusout', function() {
-          if (!regex.test($leadCapture.val())) {
-            addErrorMsg($leadCapture, $leadCaptureError);
-          } else {
-            removeErrorMsg($leadCapture, $leadCaptureError);
-          }
-        });
-      
-        var $password = $('#user\\[password\\]');
-        var $passwordError = $('#user\\[password\\]-error')
-        $password.on('focusout', function() {
-        if ($password.val().length < 6) {
-          addErrorMsg($password, $passwordError);
-        } else {
-          removeErrorMsg($password, $passwordError);
-        }
-        });
-      
-        var $firstName = $('#user\\[first_name\\]');
-        var $firstNameError = $('#user\\[first_name\\]-error');
-        $firstName.on('focusout', function() {
-          if ($firstName.val() === '') {
-            addErrorMsg($firstName, $firstNameError);
-          } else {
-            removeErrorMsg($firstName, $firstNameError);
-          }
-        });
-      
-        var $lastName = $('#user\\[last_name\\]');
-        var $lastNameError = $('#user\\[last_name\\]-error');
-        $lastName.on('focusout', function() {
-          if ($lastName.val() === '') {
-            addErrorMsg($lastName, $lastNameError);
-          } else {
-            removeErrorMsg($lastName, $lastNameError);
-          }
-        });
-      
-        var $checkbox = $('#user\\[terms\\]');
-        var $checkboxError = $('#user\\[terms\\]-error');
-        $checkbox.on('focusout', function() {
-          if (!$checkbox.is(':checked')) {
-            addErrorMsg($checkbox, $checkboxError);
-          } else {
-            removeErrorMsg($checkbox, $checkboxError);
-          }
-        });
-      
-        var $file = $('.my-account__avatar-label');
-        $file.on('change', function() {
-          $file.append('<p id="my-account__avatar--error" class="sr-only" role="alert">liquid.partials.form.file_changed</p>')
-        });
-      
-        var $select = $('.custom-select');
-        var $selectError = $('#custom-select-error')
-        $select.on('focusout', function() {
-          if($(this).prop('required')){
-            if (!$select.val()) {
-              addErrorMsg($select, $selectError);
-            } else {
-              removeErrorMsg($select, $selectError);
-            }
-          }
-        });
-      
-        var $customField = $('.custom-field');
-        var $customFieldError = $('#custom-field-error');
-        $customField.on('focusout', function() {
-          if($(this).prop('required')){
-            if ($customField.val() === '') {
-              addErrorMsg($customField, $customFieldError);
-            } else {
-              removeErrorMsg($customField, $customFieldError);
-            }
-          }
-        });
-      </script>
-      
-      
-      
-      
-          </div>
-        </div>
-        
-      </main>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- 
-
-
-
-
-      <article class="sign-in__form">
-        <h2 class="page__heading">
-          Welcome Back!
-        </h2>
-      
-        <form id="sign_in_80fd4a64bf" action="/users/sign_in" accept-charset="UTF-8" method="post">
-      <input name="utf8" type="hidden" value="✓" autocomplete="off"><input type="hidden" name="authenticity_token" value="MROmmRb02S3Nbz/zyGoQn2nxOPf31RYhpk66t41SkScbAQMMf7cQtg4ufxqHC2EnQJ2YT45ZiOEt+vPuKdCeVA==" autocomplete="off">
-          
-            
-      
-      <div id="notice" class="notice__form-error">
-        <ul class="form-error__list">
-          
-            <li class="form-error__list-item" role="alert" data-qa="notification-error">You need to sign in or sign up before continuing.</li>
-          
-        </ul>
-      </div>
-      
-          
-      
-          <div class="form__group">
-            
-            <label for="user[email]" class="form__label">
-              Email
-            </label>
-            <input type="email" id="user[email]" name="user[email]" value="" placeholder="Email" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" required="" class="form__control input--error" aria-describedby="user[email]-error" data-qa="sign-in-email__input" aria-invalid="true">
-      
-            <p id="user[email]-error" class="form__error-msg" role="alert">
-              Please enter a valid email address
-            </p>
-          </div>
-      
-          <div class="form__group">
-            
-            <label for="user[password]" class="form__label">
-              Password
-            </label>
-            <input type="password" id="user[password]" name="user[password]" placeholder="Password" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" required="" class="form__control" aria-describedby="user[password]-error" data-qa="sign-in-password__input">
-      
-            <p id="user[password]-error" class="form__error-msg hidden" role="alert">
-              Password must be at least 8 characters
-            </p>
-          </div>
-      
-          <div class="form__group form__remember-me">
-            
-            
-            <input type="hidden" name="user[remember_me]" value="0">
-      
-            <input type="checkbox" id="user[remember_me]" name="user[remember_me]" value="1" class="form__control">
-            <label for="user[remember_me]" class="form__label">
-              Remember me
-            </label>
-      
-            <a href="/users/password/new" class="form__forgot-password">
-              Forgot Password?
-            </a>
-          </div>
-      
-          
-          <div class="form__group honeypot-field">
-            <label aria-hidden="true" for="confirm-email">If you are a human, ignore this field</label>
-            <input aria-hidden="true" type="text" name="confirm-email" id="confirm-email" autocomplete="off" tabindex="-1">
-          </div>
-      
-          
-            <script>
-        var honeypotField = document.querySelector('.honeypot-field #confirm-email');
-        function onSubmit(token) {
-          if (honeypotField && honeypotField.value === '') {
-            document.getElementsByTagName('form')[0].submit();
-          } else {
-            // Most likely a spam bot if the honeypot field has a value, don't submit form
-            return false;
-          }
-        }
-      </script>
-      <div class="form__button-group">
-        <div><div class="grecaptcha-badge" data-style="bottomright" style="width: 256px; height: 60px; display: block; transition: right 0.3s ease 0s; position: fixed; bottom: 14px; right: -186px; box-shadow: gray 0px 0px 5px; border-radius: 2px; overflow: hidden;"><div class="grecaptcha-logo"><iframe title="reCAPTCHA" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LcC9KkZAAAAACd6VfH-PeYxGEshd5o9aqBRkoKm&amp;co=aHR0cHM6Ly9hY2FkZW15LmFueW9uZWFpLmNvbTo0NDM.&amp;hl=en&amp;v=NJPGLzpIZgjszqyOymHUP0XR&amp;size=invisible&amp;cb=frrvmqfv2gl9" width="256" height="60" role="presentation" name="a-qr1x6r8jkvvv" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe></div><div class="grecaptcha-error"></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;"></iframe></div><button type="submit" class="button button-primary g-recaptcha" data-sitekey="6LcC9KkZAAAAACd6VfH-PeYxGEshd5o9aqBRkoKm" data-callback="onSubmit">
-          Sign in
-        </button>
-      </div>
-      
-          
-        </form>
-      
-        
-      
-      
-        <div class="remote-sign-in__vendor-logins">
-          <h3 class="remote-sign-in__divider">
-            <span>Or sign in with</span>
-          </h3>
-          <h3 class="remote-sign-up__divider">
-            <span>Or sign up with</span>
-          </h3>
-          
-            <ul class="remote-sign-in__vendor-list">
-              
-                <li class="remote-sign-in__vendor-list-item">
-                  <a href="https://courses.thinkific.com/users/auth/linkedin?ss%5Breferral%5D=&amp;ss%5Buser_return_to%5D=%2Fcourses%2Ftake%2Ffulltime-ay22-03%2Flessons%2F39843127-1-monday-s-session&amp;ss%5Bvisitor_id%5D=1581296674" class="button linkedin" aria-label="https://courses.thinkific.com/users/auth/linkedin?ss%5Breferral%5D=&amp;ss%5Buser_return_to%5D=%2Fcourses%2Ftake%2Ffulltime-ay22-03%2Flessons%2F39843127-1-monday-s-session&amp;ss%5Bvisitor_id%5D=1581296674">
-                    <i class="fa toga-icon toga-icon-social-linkedIn" aria-hidden="true"></i>
-                  </a>
-                </li>
-              
-                <li class="remote-sign-in__vendor-list-item">
-                  <a href="https://courses.thinkific.com/users/auth/facebook?ss%5Breferral%5D=&amp;ss%5Buser_return_to%5D=%2Fcourses%2Ftake%2Ffulltime-ay22-03%2Flessons%2F39843127-1-monday-s-session&amp;ss%5Bvisitor_id%5D=1581296674" class="button facebook" aria-label="https://courses.thinkific.com/users/auth/facebook?ss%5Breferral%5D=&amp;ss%5Buser_return_to%5D=%2Fcourses%2Ftake%2Ffulltime-ay22-03%2Flessons%2F39843127-1-monday-s-session&amp;ss%5Bvisitor_id%5D=1581296674">
-                    <i class="fa toga-icon toga-icon-social-facebook" aria-hidden="true"></i>
-                  </a>
-                </li>
-              
-                <li class="remote-sign-in__vendor-list-item">
-                  <a href="https://courses.thinkific.com/users/auth/google?ss%5Breferral%5D=&amp;ss%5Buser_return_to%5D=%2Fcourses%2Ftake%2Ffulltime-ay22-03%2Flessons%2F39843127-1-monday-s-session&amp;ss%5Bvisitor_id%5D=1581296674" class="button google" aria-label="https://courses.thinkific.com/users/auth/google?ss%5Breferral%5D=&amp;ss%5Buser_return_to%5D=%2Fcourses%2Ftake%2Ffulltime-ay22-03%2Flessons%2F39843127-1-monday-s-session&amp;ss%5Bvisitor_id%5D=1581296674">
-                    <i class="fa toga-icon toga-icon-social-google-colorized" aria-hidden="true"></i>
-                  </a>
-                </li>
-              
-            </ul>
-          
-        </div>
-      
-      
-      </article>
-
-
-
- -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <div class="md:container md:mx-auto text-accent px-12 py-12 sm:px-8 sm:py-8 md:py-12 lg:px-32 lg:py-24">
-          <h1 class="sm:text-3xl text-2xl font-medium title-font text-center text-primary">¿Cuánto cuesta?</h1>
-          <p class="text-center mb-16">No tiene costo de ningún tipo hasta que comiences a trabajar.</p>
-          <div class="md:flex md:flex-wrap justify-center">
-            <div class="md:basis-1/3 flex">
-              <div class="flex-grow p-1 pt-2 mb-8 bg-anyai-gradient mx-2">
-                <div class="bg-base-100 h-full p-6">
-                  <h2 class="text-2xl text-primary mb-2 grow">$ 0 costo inicial</h2>
-                  <p>No pagas para aplicar ni accederddsddsd a la carrera.</p>
-                </div>
-              </div>
-            </div>
-            <div class="md:basis-1/3 flex flex-col justify-center items-center mb-8">
-              <div class="hidden md:inline justify-center items-center">
-                <span style="box-sizing:border-box;display:inline-block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:relative;max-width:100%">
-                  <span style="box-sizing:border-box;display:block;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;max-width:100%">
-                    <img style="display:block;max-width:100%;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0" alt="" aria-hidden="true" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIi8+">
-                  </span>
-                  <img alt="Next arrow" src="https://anyoneai.com/_next/image?url=%2Fimg%2Farrow_right.svg&w=32&q=75" decoding="async" data-nimg="intrinsic" class="m-auto" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%">
-                  <noscript>
-                    <img alt="Next arrow" src="/_next/image?url=%2Fimg%2Farrow_right.svg&amp;w=64&amp;q=75" decoding="async" data-nimg="intrinsic" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%" class="m-auto" loading="lazy"/>
-                  </noscript>
-                </span>
-              </div>
-              <div class="mb-6 md:hidden justify-center items-center">
-                <span style="box-sizing:border-box;display:inline-block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:relative;max-width:100%">
-                  <span style="box-sizing:border-box;display:block;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;max-width:100%">
-                    <img style="display:block;max-width:100%;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0" alt="" aria-hidden="true" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMzAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIi8+">
-                  </span>
-                  <img alt="Next arrow" src="https://anyoneai.com/_next/image?url=%2Fimg%2Farrow_down.svg&w=32&q=75" decoding="async" data-nimg="intrinsic" class="" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%">
-                  <noscript>
-                    <img alt="Next arrow" src="/_next/image?url=%2Fimg%2Farrow_down.svg&amp;w=48&amp;q=75" decoding="async" data-nimg="intrinsic" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%" class="" loading="lazy"/>
-                  </noscript>
-                </span>
-              </div>
-              <p class="text-center">Solo si consigues trabajo</p>
-            </div>
-            <div class="md:basis-1/3 flex">
-              <div class="flex-grow p-1 pt-2 mb-8 bg-anyai-gradient mx-2">
-                <div class="bg-base-100 h-full p-6">
-                  <h2 class="text-2xl text-primary mb-2 grow">% 7,5 de comisión</h2>
-                  <p>anual sobre tus primeros dos años de ingresos.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <p class="text-center hidden">Puedes revisar todos los detalles en nuestros<!-- --> 
-            <a class="text-primary" href="">términos y condiciones.</a>
-          </p>
-        </div>
-
-
-
-
-        <!-- <p id="paragraph">Change one element property by clicking a button</p>
-        <button id="mybtn">  Click me!</button> -->
-        <!-- <input type="file" id="image_input" accept="image/png, image/jpeg, image/jpg"> -->
-        <!-- <div id="display_image"></div> -->
-
-        <div class="bg-base-200">
-          <div class="md:container navbar pl-12 py-2 md:px-16 md:mx-auto lg:px-32 ">
-            <div class="flex-auto">
-              <span style="box-sizing:border-box;display:inline-block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:relative;max-width:100%">
-                <span style="box-sizing:border-box;display:block;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;max-width:100%">
-                  <img style="display:block;max-width:100%;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0" alt="" aria-hidden="true" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTE1IiBoZWlnaHQ9IjMwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIvPg==">
-                </span>
-                <img alt="AnyoneAi logo" src="https://anyoneai.com/_next/image?url=%2Fimg%2Flogo_with_name.svg&w=128&q=75" decoding="async" data-nimg="intrinsic" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%">
-                <noscript>
-                  <img alt="AnyoneAi logo" src="https://anyoneai.com/_next/image?url=%2Fimg%2Flogo_with_name.svg&w=128&q=75" decoding="async" data-nimg="intrinsic" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%" loading="lazy"/>
-                </noscript>
-              </span>
-            </div>
-            <div class="hidden md:flex">
-              <div class="flex items-stretch">
-                <a class="btn btn-ghost btn-sm rounded-btn underline decoration-primary decoration-4 underline-offset-8" href="/">Alumnos</a>
-                <a class="btn btn-ghost btn-sm rounded-btn" href="for-companies">Compañías</a>
-              </div>
-            </div>
-            <div class="px-2 mx-2 md:hidden">
-              <div class="dropdown dropdown-hover dropdown-end">
-                <div tabindex="0" class="m-1 btn btn-sm btn-ghost space-y-1.5 flex-col">
-                  <span class="block w-8 h-1 bg-accent"></span>
-                  <span class="block w-8 h-1 bg-accent"></span>
-                  <span class="block w-8 h-1 bg-accent"></span>
-                </div>
-                <div tabindex="0" class="p-2 shadow menu dropdown-content bg-primary text-primary-content rounded-lg whitespace-nowrap">
-                  <a class="btn btn-ghost btn-sm rounded-btn underline decoration-primary decoration-4 underline-offset-8" href="/">Alumnos</a>
-                  <a class="btn btn-ghost btn-sm rounded-btn" href="for-companies">Compañías</a>
-                  <div class="flex flex-col border-t-2 border-solid border-base-100 mt-4 pt-4">
-                    <a class="btn btn-ghost btn-sm rounded-btn" href="/">ES - Español</a>
-                    <a class="btn btn-ghost btn-sm rounded-btn" href="/en">EN - Inglés</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="px-2 mx-2 hidden md:flex">
-              <div class="dropdown dropdown-hover dropdown-end">
-                <div tabindex="0" class="m-1 btn btn-sm btn-outline">es</div>
-                <ul tabindex="0" class="p-2 shadow menu dropdown-content bg-primary text-primary-content rounded-lg whitespace-nowrap">
-                  <a class="btn btn-ghost btn-sm rounded-btn" href="/">ES - Español</a>
-                  <a class="btn btn-ghost btn-sm rounded-btn" href="/en">EN - Inglés</a>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- <div class="md:container md:mx-auto text-accent px-12 py-12 sm:px-8 sm:py-8 md:py-12 lg:px-32 lg:py-24"> -->
-          
-          <p>Select an image file to upload</p> 
-        <!-- </div> -->
-
-        <div class="md:container md:mx-auto text-accent px-12 py-12 sm:px-8 sm:py-8 md:py-12 lg:px-32 lg:py-24">
-          <p>Select an image file to upload</p> 
-          <p>
-              {% with messages = get_flashed_messages() %}
-              {% if messages %}
-                  <ul>
-                  {% for message in messages %}
-                  <li>{{ message }}</li>
-                  {% endfor %}
-                  </ul>
-              {% endif %}
-              {% endwith %}
-          </p>
-          {% if filename %}
-              <div>
-                  <img src="{{ url_for('app_router.display_image', filename=filename) }}">
-              </div>
-              {% if context['prediction'] %}
-                  <div class="row">
-                      <div class="col-25">
-                      <label for="subject">Predicted class: {{ context['prediction'] }} </label><br>
-                      <label for="subject">Score: {{ context['score'] }} </label>
-                      </div>
-                  </div>
-                  <form id="form" method="POST" action="/feedback">
-                      <button class="btn" type="submit">Report incorrect answer</button>
-                      <input name="report" style="visibility: hidden;" value="{'filename': '{{ filename }}', 'prediction': '{{ context['prediction'] }}', 'score': {{ context['score'] }} }"/>
-                  </form>
-              {% endif %}
-          {% endif %}
-          <form method="post" action="/" enctype="multipart/form-data">
-              
-              <input type="file" id="image_input" name="file" class="hidden">
-              <label for="image_input" id="image_input_label" class="btn bg-anyai-gradient border-0 mt-8 w-full md:w-fit">Upload</label>
-              <label for="image_input_label" class="to_left"> Select an image to upload</label>
-              <div id="display_image"></div>
-              <br>
-              
-              <label>Select a model</label>
-              <div>
-                <label><input type="checkbox", name="chbx_model_selection" value="ResNet50">ResNet50</label>
-                <label><input type="checkbox", name="chbx_model_selection" value="ResNet101V2">ResNet101V2</label>
-                <label><input type="checkbox", name="chbx_model_selection" value="MobileNet">MobileNet</label>
-                <label><input type="checkbox", name="chbx_model_selection" value="VGG16">VGG16</label>
-                <label><input type="checkbox", name="chbx_model_selection" value="Xception">Xception</label>
-              </div>
-              <p>
-                  <input type="submit" class="btn bg-anyai-gradient border-0 mt-8 w-full md:w-fit" value="Make Prediction">
-              </p>
-          </form>
-          <input type="file" id="image_input" accept="image/png, image/jpeg, image/jpg">
-
-        </div>
-
-          <!-- <h2 id="title">Select a file to upload</h2>
-          <p>
-              {% with messages = get_flashed_messages() %}
-              {% if messages %}
-                  <ul>
-                  {% for message in messages %}
-                  <li>{{ message }}</li>
-                  {% endfor %}
-                  </ul>
-              {% endif %}
-              {% endwith %}
-          </p>
-          {% if filename %}
-              <div>
-                  <img src="{{ url_for('app_router.display_image', filename=filename) }}">
-              </div>
-              {% if context['prediction'] %}
-                  <div class="row">
-                      <div class="col-25">
-                      <label for="subject">Predicted class: {{ context['prediction'] }} </label><br>
-                      <label for="subject">Score: {{ context['score'] }} </label>
-                      </div>
-                  </div>
-                  <form id="form" method="POST" action="/feedback">
-                      <button class="btn" type="submit">Report incorrect answer</button>
-                      <input name="report" style="visibility: hidden;" value="{'filename': '{{ filename }}', 'prediction': '{{ context['prediction'] }}', 'score': {{ context['score'] }} }"/>
-                  </form>
-              {% endif %}
-          {% endif %}
-          <form method="post" action="/" enctype="multipart/form-data">
-              
-              <input type="file" id="image_input" name="file" class="hidden">
-              <label for="image_input" id="image_input_label" class="btn bg-anyai-gradient border-0 mt-8 w-full md:w-fit">Upload</label>
-              <label for="image_input_label" class="to_left"> Select an image to upload</label>
-              <div id="display_image"></div>
-              <br>
-              
-              <label>Select a model</label>
-              <div>
-                <label><input type="checkbox", name="chbx_model_selection" value="ResNet50">ResNet50</label>
-                <label><input type="checkbox", name="chbx_model_selection" value="ResNet101V2">ResNet101V2</label>
-                <label><input type="checkbox", name="chbx_model_selection" value="MobileNet">MobileNet</label>
-                <label><input type="checkbox", name="chbx_model_selection" value="VGG16">VGG16</label>
-                <label><input type="checkbox", name="chbx_model_selection" value="Xception">Xception</label>
-              </div>
-              <input type="submit" class="btn bg-anyai-gradient border-0 mt-8 w-full md:w-fit" value="Make Prediction">
-              
-          </form>
-          <input type="file" id="image_input" accept="image/png, image/jpeg, image/jpg"> -->
-
-
-        <div class="md:container md:mx-auto text-accent px-12 py-12 sm:px-8 sm:py-8 md:py-12 lg:px-32 lg:py-24">
-          <h1 class="sm:text-3xl text-2xl font-medium title-font text-center text-primary">¿Cuánto cuesta?</h1>
-          <p class="text-center mb-16">No tiene costo de ningún tipo hasta que comiences a trabajar.</p>
-          <div class="md:flex md:flex-wrap justify-center">
-            <div class="md:basis-1/3 flex">
-              <div class="flex-grow p-1 pt-2 mb-8 bg-anyai-gradient mx-2">
-                <div class="bg-base-100 h-full p-6">
-                  <h2 class="text-2xl text-primary mb-2 grow">$ 0 costo inicial</h2>
-                  <p>No pagas para aplicar ni acceder a la carrera.</p>
-                </div>
-              </div>
-            </div>
-            <div class="md:basis-1/3 flex flex-col justify-center items-center mb-8">
-              <div class="hidden md:inline justify-center items-center">
-                <span style="box-sizing:border-box;display:inline-block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:relative;max-width:100%">
-                  <span style="box-sizing:border-box;display:block;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;max-width:100%">
-                    <img style="display:block;max-width:100%;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0" alt="" aria-hidden="true" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIi8+"></span>
-                    <img alt="Next arrow1" src="https://anyoneai.com/_next/image?url=%2Fimg%2Farrow_right.svg&w=32&q=75" decoding="async" data-nimg="intrinsic" class="m-auto" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%" >
-                    <noscript>
-                      <img alt="Next arrow2" src="https://anyoneai.com/_next/image?url=%2Fimg%2Farrow_right.svg&w=32&q=75" decoding="async" data-nimg="intrinsic" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%" class="m-auto" loading="lazy"/>
-                    </noscript>
-                  </span>
-                </div>
-                <div class="mb-6 md:hidden justify-center items-center">
-                  <span style="box-sizing:border-box;display:inline-block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:relative;max-width:100%">
-                    <span style="box-sizing:border-box;display:block;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;max-width:100%">
-                      <img style="display:block;max-width:100%;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0" alt="" aria-hidden="true" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMzAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIi8+">
-                    </span><img alt="Next arrow3" src="https://anyoneai.com/_next/image?url=%2Fimg%2Farrow_right.svg&w=32&q=75" decoding="async" data-nimg="intrinsic" class="m-auto" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%">
-                  </span>
-                </div>
-                <p class="text-center">Solo si consigues trabajo</p>
-              </div>
-              <div class="md:basis-1/3 flex">
-                <div class="flex-grow p-1 pt-2 mb-8 bg-anyai-gradient mx-2">
-                  <div class="bg-base-100 h-full p-6">
-                    <h2 class="text-2xl text-primary mb-2 grow">% 7,5 de comisión</h2>
-                    <p>anual sobre tus primeros dos años de ingresos.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <p class="text-center hidden">Puedes revisar todos los detalles en nuestros<!-- --> <a class="text-primary" href="">términos y condiciones.</a></p>
-          </div>
-       
         
         <div class="text-center p-4">
           <p>Copyright 2022 Anyone AI Inc.</p>
