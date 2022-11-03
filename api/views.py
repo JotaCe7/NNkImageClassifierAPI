@@ -72,6 +72,13 @@ def display_image(filename):
   """
   return redirect(url_for("static", filename="uploads/" + filename), code=301)
 
+@router.route("/display_preprocessed/<filename>")
+def display_preprocessed_image(filename):
+  """
+  Display preprocessed uploaded image in our UI.
+  """
+  return redirect(url_for("static", filename="uploads/preprocessed/" + filename), code=301)
+
 
 @router.route("/predict", methods=["POST"])
 def predict():
