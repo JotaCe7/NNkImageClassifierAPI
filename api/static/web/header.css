@@ -387,7 +387,7 @@ to{box-shadow:0 0 0 4px hsl(var(--b1)) inset,0 0 0 4px hsl(var(--b1)) inset,var(
 .border-accent{--tw-border-opacity:1;border-color:hsla(var(--a)/var(--tw-border-opacity))}
 .border-primary-content{--tw-border-opacity:1;border-color:hsla(var(--pc)/var(--tw-border-opacity))}
 .border-opacity-10{--tw-border-opacity:0.1}
-.bg-base-200{/* --tw-bg-opacity:1; */background-color:hsla(var(--b2)/var(--tw-bg-opacity))}
+.bg-base-200{--tw-bg-opacity:1; background-color:hsla(var(--b2)/var(--tw-bg-opacity))}
 .bg-primary{--tw-bg-opacity:1;background-color:hsla(var(--p)/var(--tw-bg-opacity))}
 .bg-primary-focus{--tw-bg-opacity:1;background-color:hsla(var(--pf)/var(--tw-bg-opacity))}
 .bg-primary-content{--tw-bg-opacity:1;background-color:hsla(var(--pc)/var(--tw-bg-opacity))}

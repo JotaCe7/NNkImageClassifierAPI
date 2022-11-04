@@ -69,7 +69,8 @@ def index():
       return render_template("index.html", filename=hashed_name, context=context, scroll="show_results")
     # File received and but it isn't an image
     else:
-      flash("** Allowed image types are -> png, jpg, jpeg, gif")
+      flash("** Please select a valid image.")
+      flash("   Allowed image types are -> png, jpg, jpeg, gif")
       return redirect(request.url + "#upload_image")
 
 
