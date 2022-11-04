@@ -22,12 +22,6 @@ image_input.addEventListener("change", function() {
   console.log(this.files[0].name) 
 })
 
-window.addEventListener('scroll', function() {
-  i = window.pageYOffset;
-  w = window.innerWidth;
-  h = window.innerHeight;
-})
-
-const element = document.getElementById("result")
-element.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
+// const element = document.getElementById("result")
+// element.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
 

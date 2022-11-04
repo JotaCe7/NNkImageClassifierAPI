@@ -17,6 +17,9 @@ from middleware import model_predict
 
 router = Blueprint("app_router", __name__, template_folder="templates")
 
+@router.route("/index#upload_image", methods=["GET"])
+def new_upload():
+  return render_template("index.html", scroll="upload_image")
 
 @router.route("/", methods=["GET", "POST"])
 def index():
@@ -60,11 +63,11 @@ def index():
                   "score": score,
                   "filename": hashed_name,
                 }
-      return render_template("index.html", filename=hashed_name, context=context)
+      return render_template("index.html", filename=hashed_name, context=context, scroll="show_results")
     # File received and but it isn't an image
     else:
       flash("Allowed image types are -> png, jpg, jpeg, gif")
-      return redirect(request.url)
+      return redirect(request.url + "#upload_image")
 
 
 @router.route("/display/<filename>")

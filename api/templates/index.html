@@ -7,6 +7,10 @@
     </head>
     <body>
 
+      {% set new_pred = "true" %}
+
+      
+
       <header class="header" data-preview-item="header" data-menu-style="" data-menu-type="header__nav--overlay" data-section-uid="page_header">
         <div class="md:px-24 px-4 header__container">
           <div class="header__wrapper">
@@ -70,7 +74,7 @@
       <main>
         <div class="sign-in__container">
           <div class="sign-in__wrapper">
-            <article class="sign-in__form">
+            <article id="upload_image" class="sign-in__form">
               <h2 class="page__heading">
                 Try out your own image!
               </h2>
@@ -117,7 +121,7 @@
 
                 {% if filename %}
                 <!-- <div class="md:container md:mx-auto text-accent px-12 py-12 sm:px-8 sm:py-8 md:py-12 lg:py-24"> -->
-                <div class="md:container md:mx-auto text-accent ">
+                <div id="show_results" class="md:container md:mx-auto text-accent ">
                   <h1 class="sm:text-3xl text-2xl font-medium title-font text-center text-primary">Was this OK?</h1>
                   <p class="text-center mb-4">Try another model maybe.</p>
                   <div class="md:flex md:flex-wrap justify-center">
@@ -228,11 +232,14 @@
                     Make Prediction
                   </button>
                   {% endif %}
-                  {% if filename %}
-                  <button>
+                  
+                  
+                  <a href="{{ url_for('.new_upload') }}">Go to specific id on suff page</a>
+                  <button onClick="window.location.reload();">
                     Upload a new image
                   </button>
-                  {% endif %}
+                  <a href="{{ url_for('.index', _anchor='upload_image') }}">Go to specific id on suff page</a>
+                  
                 </div>
               </form>
               {% if filename %}
@@ -240,6 +247,8 @@
                       <img src="{{ url_for('app_router.display_image', filename=filename) }}">
                   </div> -->
                   {% if context['prediction'] %}
+                  {% set filename = none %}
+                  {% set scroll = "upload_image" %}
                     <div id="result" class="row">
                       <div class="col-25">
                         <label for="subject">Predicted class: {{ context['prediction'] }} </label><br>
@@ -293,10 +302,18 @@
           </div>
         </div>
         
-
+        {% if scroll %}
+        <p> {{ scroll }} </p>
+        <script>
+            document.getElementById('{{ scroll }}').scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
+            // // or
+            // document.location.hash = '#' + '{{ scroll }}';
+        </script>
+        {% endif %}
         
         <script src="{{ url_for('static', filename='web/app.js') }}"></script>
         <script src="{{ url_for('static', filename='web/header.js') }}"></script>
+
         <noscript>You need to enable JavaScript to view the full site.</noscript>
     </body>
 </html>
