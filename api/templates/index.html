@@ -8,7 +8,7 @@
     <body>
 
       <header class="header" data-preview-item="header" data-menu-style="" data-menu-type="header__nav--overlay" data-section-uid="page_header">
-        <div class="header__container">
+        <div class="md:px-24 px-4 header__container">
           <div class="header__wrapper">
             <section class="header__logo header__logo___2909e">
               <a href="https://www.anyoneai.com">
@@ -28,7 +28,7 @@
             <nav class="header__nav hidden-print">
               <ul>
                 <li class="header__nav-item header__nav-sign-in">
-                  <a href="/users/sign_in">Sign In</a>
+                  <a href="https://academy.anyoneai.com/users/sign_in">Sign In</a>
                 </li>
               </ul>
             </nav>
@@ -37,28 +37,37 @@
         </div>
       </header>
 
-      <h1 class="page_heading">ImageNet classification with Python and Keras</h1>
+      
+      <div class="md:px-24 px-4 text-justify">
+        <h1 class="page__heading text-primary text-center text-6xl"><strong>ImageNet classification <br> with <br> Python and Keras</strong></h1>
+        <div class="mt-12">
+          <p>Keras is an open-source software library that provides a Python interface for artificial neural networks. Keras acts as an interface for the TensorFlow library.</p>
+        </div>
+        <div class="mt-10">
+          <h3 class="mb-2 text-3xl text-primary">What is ImageNet?</h3>
+          <p>Within computer vision and deep learning communities, you might run into a bit of contextual confusion surrounding what ImageNet is and what it isn’t.</p>
+          <p>You see, <a href="http://image-net.org/index" target="_blank" rel="noopener noreferrer">ImageNet</a> is actually a <em>project</em> aimed at labeling and categorizing images into almost 22,000 categories based on a defined set of words and phrases. At the time of this writing, there are over <em>14 million images</em> in the ImageNet project.</p>
+          <p>So, how is ImageNet organized?</p>
+          <p>To order such a massive amount of data, ImageNet actually follows the <a href="https://wordnet.princeton.edu/" target="_blank" rel="noopener noreferrer">WordNet hierarchy</a>. Each meaningful word/phrase inside WordNet is called a “synonym set” or “synset” for short. Within the ImageNet project, images are organized according to these synsets, with the goal being to have 1,000+ images per synset.</p>
+        </div>
+        <div class="mt-10">
+          <h5 class="mb-2 text-2xl text-primary">ImageNet Large Scale Recognition Challenge (ILSVRC)</h5>
+          <p>In the context of computer vision and deep learning, whenever you hear people talking about ImageNet, they are very likely referring to the <em><a href="http://www.image-net.org/challenges/LSVRC/" target="_blank" rel="noopener noreferrer">ImageNet Large Scale Recognition Challenge</a></em>, or simply ILSVRC for short.</p>
+          <p>The goal of the image classification track in this challenge is to train a model that can classify an image into <em>1,000 separate categories</em> using over <em>100,000</em> test images — the training dataset itself consists of approximately 1.2 million images.</p>
+        </div>
+        <div class="mt-10">
+          <h4 class="mb-2 text-3xl text-primary">Configuring your system for Keras and ImageNet</h4>
+          <p>Althought Keras ofitial documentation lacks of detailed examples on how to implement it, there are a lot of external resources which covers this in detail.</p>
+          <p>A good start if you are a beginner is this <a href="https://pyimagesearch.com/2017/09/25/configuring-ubuntu-for-deep-learning-with-python/" target="_blank" rel="noopener noreferrer">latest tutorial on installing Keras on Ubuntu</a> or <a href="https://pyimagesearch.com/2017/09/29/macos-for-deep-learning-with-python-tensorflow-and-keras/" target="_blank" rel="noopener noreferrer">on macOS</a>. GPU Ubuntu users should see <a href="https://pyimagesearch.com/2017/09/27/setting-up-ubuntu-16-04-cuda-gpu-for-deep-learning-with-python/" target="_blank" rel="noopener noreferrer">this tutorial</a>.</p>
+          <p>The Keras library will use PIL/Pillow for some helper functions (such as loading an image from disk). You can install <a href="https://python-pillow.org/" target="_blank" rel="noopener noreferrer">Pillow</a>, the more Python friendly fork of PIL, by using this command:</p>
+          <p>After being sure you have everything correctly installed, you can follow <a href="https://pyimagesearch.com/2016/08/10/imagenet-classification-with-python-and-keras/" target="balnk" rel="noopener noreferrer">this tutotial</a> </p>
+          <p>But if you are so excited to test this powerful library, <strong>worry you should not</strong> Here you can make some predictions on your own images with some Keras models. In case you get a bad prediction, please let us know about it using the <strong>Feedback</strong> button. </p>
+        </div>
 
-        <p>Keras is an open-source software library that provides a Python interface for artificial neural networks. Keras acts as an interface for the TensorFlow library.</p>
-        <p>The main purpose of this API is to make someprediction for user images with already trained Keras models using the ImageNet Dataset</p>
-        <p>In the remainder of this tutorial, I’ll explain what the ImageNet dataset is, and then provide Python and Keras code to classify images into <em>1,000 different categories</em> using <em>state-of-the-art</em> network architectures.</p>
-        <h3>What is ImageNet?</h3>
-        <p>Within computer vision and deep learning communities, you might run into a bit of contextual confusion surrounding what ImageNet is and what it isn’t.</p>
-        <p>You see, <a href="http://image-net.org/index" target="_blank" rel="noopener noreferrer">ImageNet</a> is actually a <em>project</em> aimed at labeling and categorizing images into almost 22,000 categories based on a defined set of words and phrases. At the time of this writing, there are over <em>14 million images</em> in the ImageNet project.</p>
-        <p>So, how is ImageNet organized?</p>
-        <p>To order such a massive amount of data, ImageNet actually follows the <a href="https://wordnet.princeton.edu/" target="_blank" rel="noopener noreferrer">WordNet hierarchy</a>. Each meaningful word/phrase inside WordNet is called a “synonym set” or “synset” for short. Within the ImageNet project, images are organized according to these synsets, with the goal being to have 1,000+ images per synset.</p>
-        <h4>ImageNet Large Scale Recognition Challenge (ILSVRC)</h4>
-        <p>In the context of computer vision and deep learning, whenever you hear people talking about ImageNet, they are very likely referring to the <em><a href="http://www.image-net.org/challenges/LSVRC/" target="_blank" rel="noopener noreferrer">ImageNet Large Scale Recognition Challenge</a></em>, or simply ILSVRC for short.</p>
-        <p>The goal of the image classification track in this challenge is to train a model that can classify an image into <em>1,000 separate categories</em> using over <em>100,000</em> test images — the training dataset itself consists of approximately 1.2 million images.</p>
-        <h3>Configuring your system for Keras and ImageNet</h3>
-        <p>Althought Keras ofitial documentation lacks of detailed examples on how to implement it, there are a lot of external resources which covers this in detail.</p>
-        <p>A good start ifyou are a beginner is this <a href="https://pyimagesearch.com/2017/09/25/configuring-ubuntu-for-deep-learning-with-python/" target="_blank" rel="noopener noreferrer">latest tutorial on installing Keras on Ubuntu</a> or <a href="https://pyimagesearch.com/2017/09/29/macos-for-deep-learning-with-python-tensorflow-and-keras/" target="_blank" rel="noopener noreferrer">on macOS</a>. GPU Ubuntu users should see <a href="https://pyimagesearch.com/2017/09/27/setting-up-ubuntu-16-04-cuda-gpu-for-deep-learning-with-python/" target="_blank" rel="noopener noreferrer">this tutorial</a>.</p>
-        <p>The Keras library will use PIL/Pillow for some helper functions (such as loading an image from disk). You can install <a href="https://python-pillow.org/" target="_blank" rel="noopener noreferrer">Pillow</a>, the more Python friendly fork of PIL, by using this command:</p>
-        <p>After being sure you have everything correctly installed, you can follow <a href="https://pyimagesearch.com/2016/08/10/imagenet-classification-with-python-and-keras/" target="balnk" rel="noopener noreferrer">this tutotial</a> </p>
-        <p>But if you are so excited to test this powerful library, <strong>worry you should not</strong> Here you can make some predictions on your own images with some Keras models. In case you get a bad prediction, please let us know about it using the <strong>Feedback</strong> button. </p>
-        
+      </div>
 
-      <main class="sign-in" id="main-content2" role="main">
+      
+      <main>
         <div class="sign-in__container">
           <div class="sign-in__wrapper">
             <article class="sign-in__form">
@@ -69,7 +78,7 @@
               
 
               <form method="post" action="/" enctype="multipart/form-data">
-                <div class="form__group">
+                <div class="form__group section__heading">
                   <input type="file" id="image_input2" name="file" class="hidden">
                   <p>Select an image to &nbsp</p>
                   <label for="image_input2" class="label_button"><u>Upload</u></label>
@@ -78,23 +87,7 @@
 
 
 
-                {% if filename %}
-                  <!-- <div>
-                      <img src="{{ url_for('app_router.display_image', filename=filename) }}">
-                  </div> -->
-                  {% if context['prediction'] %}
-                    <div class="row">
-                      <div class="col-25">
-                        <label for="subject">Predicted class: {{ context['prediction'] }} </label><br>
-                        <label for="subject">Score: {{ context['score'] }} </label>
-                        </div>
-                    </div>
-                    <form id="form" method="POST" action="/feedback">
-                        <button class="btn" type="submit">Report incorrect answer</button>
-                        <input name="report" style="visibility: hidden;" value="{'filename': '{{ filename }}', 'prediction': '{{ context['prediction'] }}', 'score': {{ context['score'] }} }"/>
-                    </form>
-                  {% endif %}
-                {% endif %}
+                
 
 
 
@@ -121,14 +114,16 @@
 
 
 
+
                 {% if filename %}
-                <div class="md:container md:mx-auto text-accent px-12 py-12 sm:px-8 sm:py-8 md:py-12 lg:py-24">
-                  <h1 class="sm:text-3xl text-2xl font-medium title-font text-center text-primary">¿Cuánto cuesta?</h1>
-                  <p class="text-center mb-16">No tiene costo de ningún tipo hasta que comiences a trabajar.</p>
+                <!-- <div class="md:container md:mx-auto text-accent px-12 py-12 sm:px-8 sm:py-8 md:py-12 lg:py-24"> -->
+                <div class="md:container md:mx-auto text-accent ">
+                  <h1 class="sm:text-3xl text-2xl font-medium title-font text-center text-primary">Was this OK?</h1>
+                  <p class="text-center mb-4">Try another model maybe.</p>
                   <div class="md:flex md:flex-wrap justify-center">
                     <div class="md:basis-1/3 flex justify-center">
                       <!-- <div class="flex-grow p-1 pt-2 mb-8 bg-anyai-gradient mx-2"> -->
-                      <div class="p-1 pt-2 mb-8 bg-anyai-gradient mx-2">
+                      <div class="p-1 pt-2 bg-anyai-gradient mx-2">
                         <!-- <div class="bg-base-100 h-full p-6"> -->
                         <div class="bg-base-100">
                           <!-- <h2 class="text-2xl text-primary mb-2 grow">$ 0 costo inicial</h2>
@@ -141,7 +136,7 @@
                         </div>
                       </div>
                     </div>
-                    <div class="md:basis-1/3 flex flex-col justify-center items-center mb-8">
+                    <div class="md:basis-1/3 flex flex-col justify-center items-center mb-4 mt-4">
                       <div class="hidden md:inline justify-center items-center">
                         <span style="box-sizing:border-box;display:inline-block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:relative;max-width:100%">
                           <span style="box-sizing:border-box;display:block;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;max-width:100%">
@@ -150,8 +145,10 @@
                           <img alt="Next arrow" src="https://anyoneai.com/_next/image?url=%2Fimg%2Farrow_right.svg&w=32&q=75" decoding="async" data-nimg="intrinsic" class="m-auto" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%">
                         </span>
                       </div>
-                      <div class="mb-6 md:hidden justify-center items-center">
-                        <span style="box-sizing:border-box;display:inline-block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:relative;max-width:100%">
+                      <!-- <div class="mb-6 md:hidden justify-center items-center"> -->
+                      <div class="md:hidden justify-center items-center">
+                        <!-- <span style="box-sizing:border-box;display:inline-block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:relative;max-width:100%"> -->
+                        <span style="position:relative">
                           <span style="box-sizing:border-box;display:block;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;max-width:100%">
                             <img style="display:block;max-width:100%;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0" alt="" aria-hidden="true" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMzAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIi8+">
                           </span>
@@ -162,7 +159,7 @@
                     </div>
                     <div class="md:basis-1/3 flex justify-center">
                       <!-- <div class="flex-grow p-1 pt-2 mb-8 bg-anyai-gradient mx-2"> --> 
-                      <div class="p-1 pt-2 mb-8 bg-anyai-gradient mx-2">
+                      <div class="p-1 pt-2 bg-anyai-gradient mx-2">
                         <!-- <div class="bg-base-100 h-full p-6"> -->
                         <div class="bg-base-100"> 
                           <!-- <h2 class="text-2xl text-primary mb-2 grow">% 7,5 de comisión</h2>
@@ -226,11 +223,35 @@
                     </div>
                     <iframe style="display: none;"></iframe>
                   </div>
+                  {% if not filename %}
                   <button type="submit" class="button button-primary">
-                    Male Prediction
+                    Make Prediction
                   </button>
+                  {% endif %}
+                  {% if filename %}
+                  <button>
+                    Upload a new image
+                  </button>
+                  {% endif %}
                 </div>
               </form>
+              {% if filename %}
+                  <!-- <div>
+                      <img src="{{ url_for('app_router.display_image', filename=filename) }}">
+                  </div> -->
+                  {% if context['prediction'] %}
+                    <div id="result" class="row">
+                      <div class="col-25">
+                        <label for="subject">Predicted class: {{ context['prediction'] }} </label><br>
+                        <label for="subject">Score: {{ context['score'] }} </label>
+                        </div>
+                    </div>
+                    <form id="form" method="POST" action="/feedback">
+                        <button class="btn" type="submit">Report incorrect answer</button>
+                        <input name="report" style="visibility: hidden;" value="{'filename': '{{ filename }}', 'prediction': '{{ context['prediction'] }}', 'score': {{ context['score'] }} }"/>
+                    </form>
+                  {% endif %}
+                {% endif %}
             </article>
           </div>
         </div> 
