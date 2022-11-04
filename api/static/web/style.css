@@ -145,7 +145,7 @@ body{
     .page__heading{font-size:3.15733em}
   }
   .section__headings{margin:0 0 2rem}
-  .section__heading{margin:0;font-family:"Raleway",sans-serif;font-weight:600;line-height:1.2;margin-bottom:0.5rem;color:#fff;font-size:1.8rem}
+  .section__heading{margin:0;font-family:"Raleway",sans-serif;font-weight:600;line-height:1.2;margin-bottom:1.5rem;color:#fff;font-size:1.8rem}
   @media all and (min-width: 480px){
     .section__heading{font-size:2.2rem}
   }

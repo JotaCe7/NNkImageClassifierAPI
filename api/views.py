@@ -17,7 +17,7 @@ from middleware import model_predict
 
 router = Blueprint("app_router", __name__, template_folder="templates")
 
-@router.route("/index#upload_image", methods=["GET"])
+@router.route("/new_prediction", methods=["GET"])
 def new_upload():
   return render_template("index.html", scroll="upload_image")
 
@@ -36,14 +36,14 @@ def index():
   if request.method == "POST":
     # No file received, show basic UI
     if "file" not in request.files:
-      flash("No file part")
+      flash("** No file part")
       return redirect(request.url)
 
     # File received but no filename is provided, show basic UI
     file = request.files["file"]
     if file.filename == "":
-      flash("No image selected for uploading")
-      return redirect(request.url)
+      flash("** No image selected for uploading")
+      return redirect(request.url, scroll="upload_image")
 
     # File received and it's an image, we must show it and get predictions
     if file and utils.allowed_file(file.filename):
@@ -51,8 +51,11 @@ def index():
       hashed_name = utils.get_file_hash(file)
       file_path = os.path.join(settings.UPLOAD_FOLDER, hashed_name)
       file.save(file_path)
-      NNmodel = request.form['rbtn_model_selection']
-      flash(NNmodel)
+      if 'rbtn_model_selection' in request.form:
+        NNmodel = request.form['rbtn_model_selection']
+      else:
+        flash("** Please select a model")
+        return redirect(request.url+"#upload_image")
 
       # Send the file to be processed by the `model` service
       prediction, score = model_predict(hashed_name, NNmodel)
@@ -66,7 +69,7 @@ def index():
       return render_template("index.html", filename=hashed_name, context=context, scroll="show_results")
     # File received and but it isn't an image
     else:
-      flash("Allowed image types are -> png, jpg, jpeg, gif")
+      flash("** Allowed image types are -> png, jpg, jpeg, gif")
       return redirect(request.url + "#upload_image")
 
 

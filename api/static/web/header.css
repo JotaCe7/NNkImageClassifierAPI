@@ -5,17 +5,18 @@
 :after,:before{--tw-content:""}
 html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:Roboto,Helvetica,Arial,sans-serif}
 body{margin:0;line-height:inherit}
-hr{height:0;color:inherit;border-top-width:1px}
-abbr[title]{-webkit-text-decoration:underline dotted;text-decoration:underline dotted}
+
+/* hr{height:0;color:inherit;border-top-width:1px}
+abbr[title]{-webkit-text-decoration:underline dotted;text-decoration:underline dotted} */
 h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}
 a{color:inherit;text-decoration:inherit}
 b,strong{font-weight:bolder}
 code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-size:1em}
-small{font-size:80%}
+/* small{font-size:80%}
 sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
 sub{bottom:-.25em}
 sup{top:-.5em}
-table{text-indent:0;border-color:inherit;border-collapse:collapse}
+table{text-indent:0;border-color:inherit;border-collapse:collapse} */
 button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:inherit;color:inherit;margin:0;padding:0}
 button,select{text-transform:none}
 [type=button],[type=reset],[type=submit],button{-webkit-appearance:button;background-color:transparent;background-image:none}
@@ -102,7 +103,7 @@ body{font-family:ProximaNova;-webkit-font-smoothing:auto;-moz-osx-font-smoothing
   -webkit-animation:button-pop var(--animation-btn,.25s) ease-out;animation:button-pop var(--animation-btn,.25s) ease-out;
   --tw-bg-opacity:1;background-color:hsla(var(--n)/var(--tw-bg-opacity,1));
   --tw-border-opacity:1;--tw-text-opacity:1;color:hsla(var(--nc)/var(--tw-text-opacity,1))}
-.btn:focus{outline:2px solid transparent;outline-offset:2px}
+/* .btn:focus{outline:2px solid transparent;outline-offset:2px}
 .btn-disabled,.btn[disabled]{
   pointer-events:none;
   --tw-bg-opacity:0.2;background-color:hsla(var(--n)/var(--tw-bg-opacity,1));
@@ -307,7 +308,7 @@ to{box-shadow:0 0 0 4px hsl(var(--b1)) inset,0 0 0 4px hsl(var(--b1)) inset,var(
 .rounded-btn{border-radius:var(--rounded-btn,.5rem)}
 .btn-sm{height:2rem;padding-left:.75rem;padding-right:.75rem;min-height:2rem;font-size:.875rem}
 .btn-square:where(.btn-sm){height:2rem;padding:0;width:2rem}
-.btn-circle:where(.btn-sm){border-radius:9999px;height:2rem;padding:0;width:2rem}
+.btn-circle:where(.btn-sm){border-radius:9999px;height:2rem;padding:0;width:2rem} */
 .btn{font-family:Kamerik;font-weight:600;text-transform:capitalize}
 .m-auto{margin:auto}
 .m-1{margin:.25rem}
