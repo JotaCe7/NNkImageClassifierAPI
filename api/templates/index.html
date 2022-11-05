@@ -20,7 +20,10 @@
             <nav class="header__nav hidden-print">
               <ul>
                 <li class="header__nav-item header__nav-sign-in">
-                  <a href="https://academy.anyoneai.com/users/sign_in">Sign In</a>
+                  <a href="https://www.linkedin.com/in/josecisneros7/" target="_blank">Jose Cisneros</a>
+                </li>
+                <li class="header__nav-item">
+                  <img alt="Linkedin link" src="https://anyoneai.com/_next/image?url=%2Fimg%2Flinkedin-2x.png&w=48&q=75" decoding="async" data-nimg="intrinsic" >
                 </li>
               </ul>
             </nav>
@@ -30,7 +33,7 @@
       </header>
 
       
-      <div class="md:px-24 px-4 text-justify mb-16">
+      <div class="md:px-24 px-4 text-justify mb-16 pt-12">
         <h1 class="page__heading text-primary text-center text-6xl"><strong>ImageNet classification <br> with <br> Python and Keras</strong></h1>
         <div class="mt-12">
           <p>Keras is an open-source software library that provides a Python interface for artificial neural networks. Keras acts as an interface for the TensorFlow library.</p>
@@ -58,7 +61,7 @@
 
       </div>
 
-      {% if not filename %}
+      
       <main class="pt-12 bg-base-200">
         <div class="sign-in__container">
           <div class="sign-in__wrapper">
@@ -66,7 +69,7 @@
               <h2 class="page__heading text-center">
                 Try out your own image!
               </h2>
-                
+              {% if not filename %}
               <form method="post" action="/" enctype="multipart/form-data">
                 <div class="form__group section__heading">
                   <input type="file" id="image_input2" name="file" class="hidden">
@@ -77,7 +80,7 @@
 
                 
                 
-                <div id="display_image2">
+                <div id="display_image2" class="mb-8">
                   <div>
                       <img src="{{ url_for('app_router.display_image', filename=filename) }}">
                   </div>
@@ -131,19 +134,17 @@
                   
                 </div>
               </form>
+
+              {% endif %}
               
             </article>
           </div>
         </div> 
       </main>
 
-      {% endif %}
-
 
                 {% if filename %}
-                <div id="show_results" class="md:container md:mx-auto text-accent ">
-                  <h1 class="sm:text-3xl text-2xl font-medium title-font text-center text-primary">Was this OK?</h1>
-                  <p class="text-center mb-4">Try another model maybe.</p>
+                <div class="md:container md:mx-auto text-accent bg-base-200">
                   <div class="md:flex md:flex-wrap justify-center">
                     <div class="md:basis-1/3 flex justify-center">
                       <div class="p-1 pt-2 bg-anyai-gradient mx-2">
@@ -185,31 +186,37 @@
                       </div>
                     </div>
                   </div>
-                  <p class="text-center hidden">Puedes revisar todos los detalles en nuestros<!-- --> 
-                    <a class="text-primary" href="">términos y condiciones.</a>
                   </p>
                 </div>
                 {% endif %} 
 
                 {% if filename %}
-                  {% if context['prediction'] %}
-                    <div id="result" class="row">
-                      <div class="col-25">
-                        <label for="subject">Predicted class: {{ context['prediction'] }} </label><br>
-                        <label for="subject">Score: {{ context['score'] }} </label>
+                {% if context['prediction'] %}
+                <div class="md:px-24 px-4 text-justify mb-8 pb-8 bg-base-200" >
+                  <h1 class="sm:text-3xl text-2xl font-medium title-font text-center text-primary pt-4">Your results:</h1>
+                    <div id="result">
+                      <div class="text-2xl">
+                        <div class="float-l">
+                          <label class="text-primary">Predicted class:</label><br>
+                          <label class="text-primary">Score:</label>
                         </div>
+                        <div>
+                          <p>{{ context['prediction'] }}</p>
+                          <p>{{ context['score'] }}</p>
+                        </div>
+                      </div>
+                      
                     </div>
+
+                    <p id="show_results" class="text-center mb-4 text-2xl mt-4"><strong>Think this is incorrect?</strong> <br> Try again with a different model or report an incorrect answer.</p>
                     <form id="form" method="POST" action="/feedback">
-                        <button class="btn" type="submit">Report incorrect answer</button>
+                        <button type="submit" class="button button-primary pl-4">Report incorrect answer</button>
                         <input name="report" style="visibility: hidden;" value="{'filename': '{{ filename }}', 'prediction': '{{ context['prediction'] }}', 'score': {{ context['score'] }} }"/>
                     </form>
                   {% endif %}
 
-                  <a href="{{ url_for('.new_upload') }}">Go to specific id on suff page</a>
-                  <button onClick="window.location.reload();">
-                    Upload a new image
-                  </button>
-                  <a href="{{ url_for('.index', _anchor='upload_image') }}">Go to specific id on suff page</a>
+                  <p class="text-2xl mt-4"><a href="{{ url_for('.new_upload') }}">Upload</a> a new image</p>
+                </div>
                 {% endif %}
 
 
