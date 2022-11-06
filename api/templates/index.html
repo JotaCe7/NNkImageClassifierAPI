@@ -103,14 +103,11 @@
                   <p>Select a model</p>
                 </div>
                 <div class="form__group">
-                  <p>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</p>
-                  <div>
-                    <label><input type="radio", name="rbtn_model_selection" value="ResNet50">ResNet50</label> <br>
-                    <label><input type="radio", name="rbtn_model_selection" value="ResNet101V2">ResNet101V2</label> <br>
-                    <label><input type="radio", name="rbtn_model_selection" value="MobileNet">MobileNet</label> <br>
-                    <label><input type="radio", name="rbtn_model_selection" value="VGG16">VGG16</label> <br>
-                    <label><input type="radio", name="rbtn_model_selection" value="Xception">Xception</label>
+                  {% for model in context['models'] %}
+                  <div class="div_checkbox text-2xl">
+                    <label><input type="radio", name="rbtn_model_selection" value="{{ model }}">{{  model }}</label> <br>
                   </div>
+                  {% endfor %}
                 </div>
                 <div class="form__button-group">
                   <div>

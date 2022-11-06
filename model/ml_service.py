@@ -46,6 +46,8 @@ def predict(image_name, NNmodel='ResNet50'):
     ----------
     image_name : str
         Image filename.
+    NNmodel : str
+        Keras model name to use for prediction
 
     Returns
     -------
@@ -92,7 +94,7 @@ def classify_process():
     while True:
         # Take a new job from Redis
       queue_name, job_data_str = db.brpop(settings.REDIS_QUEUE)
-      print(job_data_str)
+      #print(job_data_str)
       
       job_data = json.loads(job_data_str.decode('utf-8'))
 

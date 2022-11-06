@@ -31,7 +31,10 @@ def index():
   get and display the predictions.
   """
   if request.method == "GET":
-    return render_template("index.html")
+    context = {
+                'models' : settings.AVAILABLE_MODELS
+              }
+    return render_template("index.html", context=context)
 
   if request.method == "POST":
     # No file received, show basic UI

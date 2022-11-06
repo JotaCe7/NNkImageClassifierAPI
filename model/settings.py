@@ -18,3 +18,9 @@ REDIS_IP = os.getenv("REDIS_IP", "redis")
 # Sleep parameters which manages the
 # interval between requests to our redis queue
 SERVER_SLEEP = 0.05
+#Available Keras models
+AVAILABLE_MODELS = ['ResNet50',
+                    'ResNet101V2',
+                    'MobileNet',
+                    'VGG16',
+                    'Xception']

@@ -82,11 +82,11 @@ body{
     background-color:#ff0;color:#000
   }
   [type="checkbox"],[type="radio"]{box-sizing:border-box;padding:0}
-  [type="number"]::-webkit-inner-spin-button,[type="number"]::-webkit-outer-spin-button{height:auto}
-  [type="search"]{-webkit-appearance:textfield;outline-offset:-2px}
-  [type="search"]::-webkit-search-cancel-button,[type="search"]::-webkit-search-decoration{-webkit-appearance:none}
+  .div_checkbox{min-width: 200px; display: flex; flex-direction: row;}
+  @media all and (min-width: 1400px){.div_checkbox{min-width: 150;}}
+  @media all and (min-width: 758){.div_checkbox{min-width: 0;flex-direction: column;}}
   [hidden]{display:none}
-  html,body,div,span,h1,h2,h3,h4,h5,h6,p,a,strong,ol,ul,li,form,label,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin-top:0}
+  html,body,div,span,h1,h2,h3,h4,h5,h6,p,a,strong,ol,ul,li,form,label,footer,header,menu,nav,output,ruby,section{margin-top:0}
   
   html{font-size:18px;-ms-box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;scroll-behavior:smooth}
 
@@ -115,7 +115,14 @@ body{
   }
   .form__label-checkbox{font-size:1rem}
   body{font-family:"Roboto",Sans-Serif;font-size:1em;font-weight:400;line-height:1.375rem;text-rendering:optimizeLegibility;text-shadow:0 0 1px transparent;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;word-break:break-word}
-  form,input,textarea,label,fieldset,legend,select,optgroup,option,datalist,keygen,output{font-family:"Roboto",Sans-Serif}h1,h2,h3,h4,h5,h6{margin:0 0 1rem;font-family:"Raleway",sans-serif;line-height:1.2}h1{font-size:3.36698rem}h2{font-size:2.52587rem}h3{font-size:1.89487rem}h4{font-size:1.42151rem}h5{font-size:1.0664rem}h6{font-size:0.8rem}@media all and (min-width: 768px){h1{font-size:3.78785rem}h2{font-size:2.8416rem}h3{font-size:2.13173rem}h4{font-size:1.5992rem}h5{font-size:1.1997rem}h6{font-size:0.9rem}}
+  form,input,textarea,label,fieldset,legend,select,optgroup,option,datalist,keygen,output{font-family:"Roboto",Sans-Serif}h1,h2,h3,h4,h5,h6{margin:0 0 1rem;font-family:"Raleway",sans-serif;line-height:1.2}
+  h1{font-size:3.36698rem}
+  h2{font-size:2.52587rem}
+  h3{font-size:1.89487rem}
+  h4{font-size:1.42151rem}
+  h5{font-size:1.0664rem}
+  h6{font-size:0.8rem}
+  @media all and (min-width: 768px){h1{font-size:3.78785rem}h2{font-size:2.8416rem}h3{font-size:2.13173rem}h4{font-size:1.5992rem}h5{font-size:1.1997rem}h6{font-size:0.9rem}}
   @media all and (min-width: 992px){h1{font-size:4.20873em}h2{font-size:3.15733em}h3{font-size:2.36859em}h4{font-size:1.77689em}h5{font-size:1.333em}h6{font-size:1em}}
   .page__heading{margin:0 0 1rem;font-family:"Raleway",sans-serif;font-size:2.52587rem;font-weight:400;line-height:1.2}
   @media all and (min-width: 768px){
