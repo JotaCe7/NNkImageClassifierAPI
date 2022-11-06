@@ -82,7 +82,7 @@ body{
     background-color:#ff0;color:#000
   }
   [type="checkbox"],[type="radio"]{box-sizing:border-box;padding:0}
-  .div_checkbox{min-width: 200px; display: flex; flex-direction: row;}
+  .div_checkbox{min-width: 250px; display: flex; flex-direction: row;}
   @media all and (min-width: 1400px){.div_checkbox{min-width: 150;}}
   @media all and (min-width: 758){.div_checkbox{min-width: 0;flex-direction: column;}}
   [hidden]{display:none}

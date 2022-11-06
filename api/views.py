@@ -19,7 +19,10 @@ router = Blueprint("app_router", __name__, template_folder="templates")
 
 @router.route("/new_prediction", methods=["GET"])
 def new_upload():
-  return render_template("index.html", scroll="upload_image")
+  context = {
+              'models' : settings.AVAILABLE_MODELS
+            }
+  return render_template("index.html", context=context, scroll="upload_image")
 
 @router.route("/", methods=["GET", "POST"])
 def index():

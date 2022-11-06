@@ -70,67 +70,67 @@
                 Try out your own image!
               </h2>
               {% if not filename %}
-              <form method="post" action="/" enctype="multipart/form-data">
-                <div class="form__group section__heading">
-                  <input type="file" id="image_input2" name="file" class="hidden">
-                  <p>Select an image to &nbsp</p>
-                  <label for="image_input2" class="label_button"><u>Upload</u></label>
-                  <br>
-                </div>
-
-                
-                
-                <div id="display_image2" class="mb-8">
-                  <div>
-                      <img src="{{ url_for('app_router.display_image', filename=filename) }}">
+                <form method="post" action="/" enctype="multipart/form-data">
+                  <div class="form__group section__heading">
+                    <input type="file" id="image_input2" name="file" class="hidden">
+                    <p>Select an image to &nbsp</p>
+                    <label for="image_input2" class="label_button"><u>Upload</u></label>
+                    <br>
                   </div>
-                </div>
 
-                <p >
-                  {% with messages = get_flashed_messages() %}
-                  {% if messages %}
-                      <ul>
-                      {% for message in messages %}
-                      <li class="messages">{{ message }}</li>
-                      {% endfor %}
-                      </ul>
-                  {% endif %}
-                  {% endwith %}
-                </p>
-
-
-                <div class="form__group section__heading">
-                  <p>Select a model</p>
-                </div>
-                <div class="form__group">
-                  {% for model in context['models'] %}
-                  <div class="div_checkbox text-2xl">
-                    <label><input type="radio", name="rbtn_model_selection" value="{{ model }}">{{  model }}</label> <br>
-                  </div>
-                  {% endfor %}
-                </div>
-                <div class="form__button-group">
-                  <div>
-                    <div class="grecaptcha-badge" data-style="bottomright" style="width: 256px; height: 60px; display: block; transition: right 0.3s ease 0s; position: fixed; bottom: 14px; right: -186px; box-shadow: gray 0px 0px 5px; border-radius: 2px; overflow: hidden;">
-                      <div class="grecaptcha-logo">
-                        <iframe title="reCAPTCHA" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LcC9KkZAAAAACd6VfH-PeYxGEshd5o9aqBRkoKm&amp;co=aHR0cHM6Ly9hY2FkZW15LmFueW9uZWFpLmNvbTo0NDM.&amp;hl=en&amp;v=NJPGLzpIZgjszqyOymHUP0XR&amp;size=invisible&amp;cb=xge7bbx2bqs" width="256" height="60" role="presentation" name="a-fj37gsgh52b8" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox">
-
-                        </iframe>
-                      </div>
-                      <div class="grecaptcha-error"></div>
-                      <textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;">
-                      </textarea>
-                    </div>
-                    <iframe style="display: none;"></iframe>
-                  </div>
-                  <div class="pl-4">
-                    <button type="submit" class="button button-primary pl-4">
-                      Make Prediction
-                    </button>
-                  </div>
                   
-                </div>
-              </form>
+                  
+                  <div id="display_image2" class="mb-8">
+                    <div>
+                        <img src="{{ url_for('app_router.display_image', filename=filename) }}">
+                    </div>
+                  </div>
+
+                  <p >
+                    {% with messages = get_flashed_messages() %}
+                      {% if messages %}
+                          <ul>
+                          {% for message in messages %}
+                          <li class="messages">{{ message }}</li>
+                          {% endfor %}
+                          </ul>
+                      {% endif %}
+                    {% endwith %}
+                  </p>
+
+
+                  <div class="form__group section__heading">
+                    <p>Select a model</p>
+                  </div>
+                  <div class="form__group">
+                    {% for model in context['models'] %}
+                      <div class="div_checkbox text-2xl">
+                        <label><input type="radio", name="rbtn_model_selection" value="{{ model }}">{{  model }}</label> <br>
+                      </div>
+                    {% endfor %}
+                  </div>
+                  <div class="form__button-group">
+                    <div>
+                      <div class="grecaptcha-badge" data-style="bottomright" style="width: 256px; height: 60px; display: block; transition: right 0.3s ease 0s; position: fixed; bottom: 14px; right: -186px; box-shadow: gray 0px 0px 5px; border-radius: 2px; overflow: hidden;">
+                        <div class="grecaptcha-logo">
+                          <iframe title="reCAPTCHA" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LcC9KkZAAAAACd6VfH-PeYxGEshd5o9aqBRkoKm&amp;co=aHR0cHM6Ly9hY2FkZW15LmFueW9uZWFpLmNvbTo0NDM.&amp;hl=en&amp;v=NJPGLzpIZgjszqyOymHUP0XR&amp;size=invisible&amp;cb=xge7bbx2bqs" width="256" height="60" role="presentation" name="a-fj37gsgh52b8" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox">
+
+                          </iframe>
+                        </div>
+                        <div class="grecaptcha-error"></div>
+                        <textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;">
+                        </textarea>
+                      </div>
+                      <iframe style="display: none;"></iframe>
+                    </div>
+                    <div class="pl-4">
+                      <button type="submit" class="button button-primary pl-4">
+                        Make Prediction
+                      </button>
+                    </div>
+                    
+                  </div>
+                </form>
 
               {% endif %}
               
@@ -140,121 +140,119 @@
       </main>
 
 
-                {% if filename %}
-                <div class="md:container md:mx-auto text-accent bg-base-200">
-                  <div class="md:flex md:flex-wrap justify-center">
-                    <div class="md:basis-1/3 flex justify-center">
-                      <div class="p-1 pt-2 bg-anyai-gradient mx-2">
-                        <div class="bg-base-100">
-                          
-                          <div class="output-image-container">
-                              <img class="output-image" src="{{ url_for('app_router.display_image', filename=filename) }}">
-                          </div>
-                          
-                        </div>
-                      </div>
-                    </div>
-                    <div class="md:basis-1/3 flex flex-col justify-center items-center mb-4 mt-4">
-                      <div class="hidden md:inline justify-center items-center">
-                        <span style="box-sizing:border-box;display:inline-block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:relative;max-width:100%">
-                          <span style="box-sizing:border-box;display:block;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;max-width:100%">
-                            <img style="display:block;max-width:100%;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0" alt="" aria-hidden="true" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIi8+">
-                          </span>
-                          <img alt="Next arrow" src="https://anyoneai.com/_next/image?url=%2Fimg%2Farrow_right.svg&w=32&q=75" decoding="async" data-nimg="intrinsic" class="m-auto" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%">
-                        </span>
-                      </div>
-                      <div class="md:hidden justify-center items-center">
-                        <span style="position:relative">
-                          <span style="box-sizing:border-box;display:block;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;max-width:100%">
-                            <img style="display:block;max-width:100%;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0" alt="" aria-hidden="true" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMzAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIi8+">
-                          </span>
-                          <img alt="Next arrow" src="https://anyoneai.com/_next/image?url=%2Fimg%2Farrow_down.svg&w=32&q=75" decoding="async" data-nimg="intrinsic" class="" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%">
-                          </span>
-                      </div>
-                      <p class="text-center">Preprocessing</p>
-                    </div>
-                    <div class="md:basis-1/3 flex justify-center">
-                      <div class="p-1 pt-2 bg-anyai-gradient mx-2">
-                        <div class="bg-base-100"> 
-                          <div class="output-image-container">
-                            <img class="output-image" src="{{ url_for('app_router.display_preprocessed_image', filename=filename) }}" alt="Preprocessed image">
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+      {% if filename %}
+        <div class="md:container md:mx-auto text-accent bg-base-200">
+          <div class="md:flex md:flex-wrap justify-center">
+            <div class="md:basis-1/3 flex justify-center">
+              <div class="p-1 pt-2 bg-anyai-gradient mx-2">
+                <div class="bg-base-100">
+                  
+                  <div class="output-image-container">
+                      <img class="output-image" src="{{ url_for('app_router.display_image', filename=filename) }}">
                   </div>
-                  </p>
+                  
                 </div>
-                {% endif %} 
-
-                {% if filename %}
-                {% if context['prediction'] %}
-                <div class="md:px-24 px-4 text-justify mb-8 pb-8 bg-base-200" >
-                  <h1 class="sm:text-3xl text-2xl font-medium title-font text-center text-primary pt-4">Your results:</h1>
-                    <div id="result">
-                      <div class="text-2xl">
-                        <div class="float-l">
-                          <label class="text-primary">Predicted class:</label><br>
-                          <label class="text-primary">Score:</label>
-                        </div>
-                        <div>
-                          <p>{{ context['prediction'] }}</p>
-                          <p>{{ context['score'] }}</p>
-                        </div>
-                      </div>
-                      
-                    </div>
-
-                    <p id="show_results" class="text-center mb-4 text-2xl mt-4"><strong>Think this is incorrect?</strong> <br> Try again with a different model or report an incorrect answer.</p>
-                    <form id="form" method="POST" action="/feedback">
-                        <button type="submit" class="button button-primary pl-4">Report incorrect answer</button>
-                        <input name="report" style="visibility: hidden;" value="{'filename': '{{ filename }}', 'prediction': '{{ context['prediction'] }}', 'score': {{ context['score'] }} }"/>
-                    </form>
-                  {% endif %}
-
-                  <p class="text-2xl mt-4"><a href="{{ url_for('.new_upload') }}">Upload</a> a new image</p>
-                </div>
-                {% endif %}
-
-
-        
-        <div class="text-center p-4">
-          <p>Copyright 2022 Anyone AI Inc.</p>
-          <div class="flex justify-center mt-4">
-            <div class="mx-2">
-              <a href="https://www.instagram.com/anyoneai_ok/">
-                <span style="box-sizing: border-box; display: inline-block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;">
-                  <span style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;">
-                    <img alt="" aria-hidden="true" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIi8+" style="display: block; max-width: 100%; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;">
-                  </span>
-                  <img alt="Instagram link" src="https://anyoneai.com/_next/image?url=%2Fimg%2Finstagram-2x.png&w=48&q=75" decoding="async" data-nimg="intrinsic" style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;">
-                  <noscript></noscript>
-                </span>
-              </a>
+              </div>
             </div>
-            <div class="mx-2">
-              <a href="https://www.linkedin.com/company/anyone-ai">
-                <span style="box-sizing: border-box; display: inline-block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;">
-                  <span style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;">
-                    <img alt="" aria-hidden="true" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIi8+" style="display: block; max-width: 100%; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;">
+            <div class="md:basis-1/3 flex flex-col justify-center items-center mb-4 mt-4">
+              <div class="hidden md:inline justify-center items-center">
+                <span style="box-sizing:border-box;display:inline-block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:relative;max-width:100%">
+                  <span style="box-sizing:border-box;display:block;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;max-width:100%">
+                    <img style="display:block;max-width:100%;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0" alt="" aria-hidden="true" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIi8+">
                   </span>
-                  <img alt="Linkedin link" src="https://anyoneai.com/_next/image?url=%2Fimg%2Flinkedin-2x.png&w=48&q=75" decoding="async" data-nimg="intrinsic" class="mx-4" style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;">
-                  <noscript></noscript>
+                  <img alt="Next arrow" src="https://anyoneai.com/_next/image?url=%2Fimg%2Farrow_right.svg&w=32&q=75" decoding="async" data-nimg="intrinsic" class="m-auto" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%">
                 </span>
-              </a>
+              </div>
+              <div class="md:hidden justify-center items-center">
+                <span style="position:relative">
+                  <span style="box-sizing:border-box;display:block;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;max-width:100%">
+                    <img style="display:block;max-width:100%;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0" alt="" aria-hidden="true" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMzAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIi8+">
+                  </span>
+                  <img alt="Next arrow" src="https://anyoneai.com/_next/image?url=%2Fimg%2Farrow_down.svg&w=32&q=75" decoding="async" data-nimg="intrinsic" class="" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%">
+                  </span>
+              </div>
+              <p class="text-center">Preprocessing</p>
+            </div>
+            <div class="md:basis-1/3 flex justify-center">
+              <div class="p-1 pt-2 bg-anyai-gradient mx-2">
+                <div class="bg-base-100"> 
+                  <div class="output-image-container">
+                    <img class="output-image" src="{{ url_for('app_router.display_preprocessed_image', filename=filename) }}" alt="Preprocessed image">
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
+          </p>
         </div>
+          <div class="md:px-24 px-4 text-justify mb-8 pb-8 bg-base-200" >
+            {% if context['prediction'] %}
+              <h1 class="sm:text-3xl text-2xl font-medium title-font text-center text-primary pt-4">Your results:</h1>
+              <div id="result">
+                <div class="text-2xl">
+                  <div class="float-l">
+                    <label class="text-primary">Predicted class:</label><br>
+                    <label class="text-primary">Score:</label>
+                  </div>
+                  <div>
+                    <p>{{ context['prediction'] }}</p>
+                    <p>{{ context['score'] }}</p>
+                  </div>
+                </div>
+              </div>
+
+              <p id="show_results" class="text-center mb-4 text-2xl mt-4"><strong>Think this is incorrect?</strong> <br> Try again with a different model or report an incorrect answer.</p>
+              <form id="form" method="POST" action="/feedback">
+                  <button type="submit" class="button button-primary pl-4">Report incorrect answer</button>
+                  <input name="report" style="visibility: hidden;" value="{'filename': '{{ filename }}', 'prediction': '{{ context['prediction'] }}', 'score': {{ context['score'] }} }"/>
+              </form>
+            {% endif %}
+
+          <p class="text-3xl mt-4"><a href="{{ url_for('.new_upload') }}">Upload</a> a new image</p>
+          <p><strong>Hint:</strong> See how this looks in your phone! Go to your PC local IP in your favorite browser. Just make sure to have it connected to the same network. </p>
+        </div>
+      {% endif %}
+              
+
+
         
-        {% if scroll %}
+      <div class="text-center p-4">
+        <p>Copyright 2022 Anyone AI Inc.</p>
+        <div class="flex justify-center mt-4">
+          <div class="mx-2">
+            <a href="https://www.instagram.com/anyoneai_ok/">
+              <span style="box-sizing: border-box; display: inline-block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;">
+                <span style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;">
+                  <img alt="" aria-hidden="true" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIi8+" style="display: block; max-width: 100%; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;">
+                </span>
+                <img alt="Instagram link" src="https://anyoneai.com/_next/image?url=%2Fimg%2Finstagram-2x.png&w=48&q=75" decoding="async" data-nimg="intrinsic" style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;">
+                <noscript></noscript>
+              </span>
+            </a>
+          </div>
+          <div class="mx-2">
+            <a href="https://www.linkedin.com/company/anyone-ai">
+              <span style="box-sizing: border-box; display: inline-block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;">
+                <span style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;">
+                  <img alt="" aria-hidden="true" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIi8+" style="display: block; max-width: 100%; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;">
+                </span>
+                <img alt="Linkedin link" src="https://anyoneai.com/_next/image?url=%2Fimg%2Flinkedin-2x.png&w=48&q=75" decoding="async" data-nimg="intrinsic" class="mx-4" style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;">
+                <noscript></noscript>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      {% if scroll %}
         <script>
             document.getElementById('{{ scroll }}').scrollIntoView({behavior: "auto", block: "end", inline: "nearest"});
         </script>
-        {% endif %}
+      {% endif %}
         
-        <script src="{{ url_for('static', filename='web/app.js') }}"></script>
-        <script src="{{ url_for('static', filename='web/header.js') }}"></script>
+      <script src="{{ url_for('static', filename='web/app.js') }}"></script>
+      <script src="{{ url_for('static', filename='web/header.js') }}"></script>
 
-        <noscript>You need to enable JavaScript to view the full site.</noscript>
-    </body>
+      <noscript>You need to enable JavaScript to view the full site.</noscript>
+  </body>
 </html>
