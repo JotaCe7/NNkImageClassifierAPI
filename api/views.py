@@ -71,6 +71,7 @@ def index():
                   "prediction": prediction,
                   "score": score,
                   "filename": hashed_name,
+                  "model": NNmodel,
                 }
       return render_template("index.html", filename=hashed_name, context=context, scroll="show_results")
     # File received and but it isn't an image
