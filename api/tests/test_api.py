@@ -57,7 +57,7 @@ class TestIntegration(TestCase):
             curr_feedback_lines = 0
 
         data = {
-            "report": "{'filename': 'test', 'prediction': 'test-pred', 'score': 1. }"
+            "report": "{'filename': 'test', 'prediction': 'test-pred', 'score': 1., 'model': }"
         }
         response = self.client.post(
             "/feedback",
