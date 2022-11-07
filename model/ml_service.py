@@ -71,7 +71,7 @@ def predict(image_name, NNmodel='ResNet50'):
     preprocessed_batch = (x_batch[0] + 128).astype(np.uint8)
     preprocessed_image = Image.fromarray(preprocessed_batch)
     preprocessed_image.save(os.path.join(settings.PREPROCESS_FOLDER,image_name))
-
+    
     preds = model.predict(x_batch)
     best_pred = model_class.decode_predictions(preds, top=1)
     class_name = best_pred[0][0][1]
@@ -99,10 +99,13 @@ def classify_process():
       job_data = json.loads(job_data_str.decode('utf-8'))
 
       # Run ML model on the given data
-      class_name, pred_probability = predict(job_data['image_name'], job_data['NNmodel'])
+      try:
+        class_name, pred_probability = predict(job_data['image_name'], job_data['NNmodel'])
+      except:
+        class_name, pred_probability = '', 0
       pred_dict = {
                     "prediction": class_name,
-                    "score": float(pred_probability)
+                    "score": pred_probability
                   }
       # Store the results on Redis
       db.set(job_data["id"], json.dumps(pred_dict))

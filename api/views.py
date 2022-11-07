@@ -147,6 +147,10 @@ def predict():
       # Send the file to be processed by the `model` service
       prediction, score = model_predict(hashed_name)
 
+      # In case there were an exeption in the ml service, report an error code
+      if score ==0:
+        return rpse, 400
+
       # Update `response`
       rpse["success"] = True
       rpse["prediction"] = prediction
