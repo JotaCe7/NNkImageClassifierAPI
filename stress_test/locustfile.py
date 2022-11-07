@@ -4,11 +4,13 @@ from locust import HttpUser, task, between
 class APIUser(HttpUser):
     wait_time = between(1, 5)
     
+    # Load test predict/ endpoint
     @task(10)
     def predict_post(self):
       with open("../tests/dog.jpeg", "rb") as file:
         self.client.post("/predict",files={'file': file})
 
+    # Load test feedback/ endpoint
     @task(1)
     def feedback_post(self):
       data = {
