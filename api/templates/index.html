@@ -193,10 +193,12 @@
                   <div class="float-l">
                     <label class="text-primary">Predicted class:</label><br>
                     <label class="text-primary">Score:</label>
+                    <label class="text-primary">Model:</label>
                   </div>
                   <div>
                     <p>{{ context['prediction'] }}</p>
                     <p>{{ context['score'] }}</p>
+                    <p>{{ context['model'] }}</p>
                   </div>
                 </div>
               </div>
@@ -204,7 +206,7 @@
               <p id="show_results" class="text-center mb-4 text-2xl mt-4"><strong>Think this is incorrect?</strong> <br> Try again with a different model or report an incorrect answer.</p>
               <form id="form" method="POST" action="/feedback">
                   <button type="submit" class="button button-primary pl-4">Report incorrect answer</button>
-                  <input name="report" style="visibility: hidden;" value="{'filename': '{{ filename }}', 'prediction': '{{ context['prediction'] }}', 'score': {{ context['score'] }} }"/>
+                  <input name="report" style="visibility: hidden;" value="{'filename': '{{ filename }}', 'prediction': '{{ context['prediction'] }}', 'score': {{ context['score'] }}, 'model': '{{ context['model'] }}'' }"/>
               </form>
             {% endif %}
 
