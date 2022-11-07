@@ -190,4 +190,7 @@ def feedback():
       else:
         file.write(f'{report}')
   
-  return render_template("index.html")
+  context = {
+              'models' : settings.AVAILABLE_MODELS
+            } 
+  return render_template("index.html", context=context, scroll="upload_image")
