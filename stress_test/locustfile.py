@@ -4,10 +4,10 @@ from locust import HttpUser, task, between
 class APIUser(HttpUser):
     wait_time = between(1, 5)
     
-    @task(20)
+    @task(10)
     def predict_post(self):
-
-      self.client.post("/predict",files={'file': open("../tests/dog.jpeg", "rb")})
+      with open("../tests/dog.jpeg", "rb") as file:
+        self.client.post("/predict",files={'file': file})
 
     @task(1)
     def feedback_post(self):
@@ -17,6 +17,5 @@ class APIUser(HttpUser):
       self.client.post("/feedback", data=data)
 
 
-
     def on_start(self):
-      pass
+       self.client.get("/")
