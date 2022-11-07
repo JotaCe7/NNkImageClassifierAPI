@@ -25,16 +25,39 @@ models= { 'ResNet50': resnet50,
           'VGG16': vgg16,
           'Xception': xception}
 
-ResNet50 = resnet50.ResNet50(include_top=True,
-                             weights="/src/weights/resnet50_weights_tf_dim_ordering_tf_kernels.h5")
-ResNet101V2 = resnet_v2.ResNet101V2(include_top=True,
-                                    weights='/src/weights/resnet101v2_weights_tf_dim_ordering_tf_kernels.h5')
-MobileNet = mobilenet.MobileNet(include_top=True,
-                                weights='/src/weights/mobilenet_1_0_224_tf.h5')
-Xception = xception.Xception(include_top=True,
-                             weights='/src/weights/xception_weights_tf_dim_ordering_tf_kernels.h5')
-VGG16 = vgg16.VGG16(include_top=True,
-                    weights='/src/weights/vgg16_weights_tf_dim_ordering_tf_kernels.h5')
+# In order to prevent long downloading time we have downloaded the weights for each model in
+# weights folder. In case the weights are not present, download them in the go.
+
+# 1. Create a weights folder inside model/,
+# 2. Download https://drive.google.com/file/d/1JPzUUBuqtN0CEzWRC7A2jFfA73OWQMT5/view?usp=sharing, and
+# 3. unzip it in the just created folder
+
+try:
+  ResNet50 = resnet50.ResNet50(include_top=True,
+                               weights="/src/weights/resnet50_weights_tf_dim_ordering_tf_kernels.h5")
+except:
+  ResNet50 = resnet50.ResNet50(include_top=True,weights="imagenet")
+try:
+  ResNet101V2 = resnet_v2.ResNet101V2(include_top=True,
+                                      weights='/src/weights/resnet101v2_weights_tf_dim_ordering_tf_kernels.h5')
+except:
+  ResNet101V2 = resnet_v2.ResNet101V2(include_top=True,weights="imagenet")
+try:
+  MobileNet = mobilenet.MobileNet(include_top=True,
+                                  weights='/src/weights/mobilenet_1_0_224_tf.h5')
+except:
+  MobileNet = mobilenet.MobileNet(include_top=True,weights="imagenet")
+try:
+  Xception = xception.Xception(include_top=True,
+                              weights='/src/weights/xception_weights_tf_dim_ordering_tf_kernels.h5')
+except:
+  Xception = xception.Xception(include_top=True,weights="imagenet")
+try:
+  VGG16 = vgg16.VGG16(include_top=True,
+                      weights='/src/weights/vgg16_weights_tf_dim_ordering_tf_kernels.h5')
+except:
+  VGG16 = vgg16.VGG16(include_top=True,weights="imagenet")
+  
 
 
 def predict(image_name, NNmodel='ResNet50'):
